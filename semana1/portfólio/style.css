@@ -1,0 +1,50 @@
+body,html {
+  margin: 0;
+  font: 'Open Sans', arial, sans-serif;
+  font-color: rgb(223, 107, 107);
+}
+
+h2 {
+  color:#8B0000;
+}
+
+a {
+  color: rgb(151, 8, 8);
+  text-transform: uppercase;
+  letter-spacing: 0.30em;
+
+  display: inline-block;
+  padding: 15px 20px;
+  position: relative;
+}
+
+ul {
+  margin: 10px auto 0;
+  padding: 0;
+  display: table;
+  width: 600px;
+  text-align: center;
+}
+
+li {
+  display: table-cell;
+  position: relative;
+  padding: 15px 0;
+}
+
+img {
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+}
+
+footer {
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #8B0000;
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 30px;
+}
