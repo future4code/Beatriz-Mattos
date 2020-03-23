@@ -1,35 +1,93 @@
 body,html {
   margin: 0;
-  font: 'Open Sans', arial, sans-serif;
-  font-color: rgb(223, 107, 107);
 }
 
+#logo {
+  position: absolute;
+  top: 10px;
+  left: 50px;
+  width: 120px;
+  height: 120px;
+}
+
+#menuHome {
+  height: 100px;
+  padding-right: 30px;
+  padding-left: 100px;
+  padding-top: 30px;
+  background-color: /*#8FBC8F; #BDB76B; */ /*#DEB887;*/ #CDCDB4; /* #F5F5DC;*/
+  margin: 0;
+  position: top;
+  list-style-type: none;
+  }
+
+#menuHome li {
+  font-family:  "Garamond";
+  color: #8B0000;
+  text-decoration: none;
+  padding-right: 30px;
+  float: right;
+  }
+
+#menuHome a:hover {
+  display: block;
+  background-color: black;
+  color: white;
+  }
+
 h2 {
+  font-family: "Garamond";
+  letter-spacing: 2.6px;
+  font-size: 50px;
   color:#8B0000;
 }
 
+h3 {
+  font-family: "Courier New", Courier, monospace;
+  color: #2A7420;
+  font-size: 20px;
+
+}
+
+p {
+  font-size: 20px;
+  font-weight: 400;
+  color: #2A7420;
+}
+
+#descricao {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 18px;
+  letter-spacing: -1px;
+  word-spacing: 4.2px;
+  color: #2A7420;
+  font-weight: 400;
+  padding: 20px;
+  width: 500px;
+  border-radius: 10px;
+}
+
+.secaoAzul {
+  background-color: #00001a;
+}
+
+.secaoVermelha {
+  background-color: #6f0000;
+}
+
 a {
-  color: rgb(151, 8, 8);
+  color: #8B0000;
   text-transform: uppercase;
   letter-spacing: 0.30em;
-
   display: inline-block;
   padding: 15px 20px;
   position: relative;
 }
 
-ul {
-  margin: 10px auto 0;
-  padding: 0;
-  display: table;
-  width: 600px;
-  text-align: center;
-}
-
-li {
-  display: table-cell;
-  position: relative;
-  padding: 15px 0;
+#minhaFoto {
+  border-radius: 70%;
+  width: 150px;
+  height: 150px;
 }
 
 img {
@@ -37,14 +95,59 @@ img {
   margin-left: auto;
   margin-right: auto;
   width: 40%;
+  }
+
+.padraoTexto {
+  font-family: "Courier New", Courier, monospace;
+  display: flex;
+  height: 40vh;
+  border-radius: 10px;
+  width: 1250px;
+}
+
+#future4 {
+  width: 100px;
+  height: 100px;
+  padding: 40px;
+}
+
+.parte4 {
+  font-family: "Courier New", Courier, monospace;
+  height: 175vh;
+  border-radius: 10px;
+  width: 1250px;
+}
+
+#siteArenaExtreme {
+  width: 500px;
+  height: 300px;
+  padding: 0px;
+}
+
+#siteFuture4 {
+  width: 500px;
+  height: 300px;
 }
 
 footer {
   left: 0;
   bottom: 0;
-  width: 100%;
-  background-color: #8B0000;
+  width: 100;
+  background-color: #8B0000; /*#8B0000; /* #ff0000; */
+  font-family:  "Garamond";
   text-align: center;
-  padding-top: 20px;
-  padding-bottom: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.botaoEnviar {
+  background-color: black;
+  padding: 10px;
+  color: white;
+  border-radius: 30%;
+}
+
+.caixasDeTexto {
+  padding: 10px;
+  width: 210px;
 }
