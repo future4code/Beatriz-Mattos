@@ -1,6 +1,6 @@
-/** 
+/**
   *
-  *  ESTILOS GERAIS 
+  *  ESTILOS GERAIS
   *
   **/
 
@@ -44,6 +44,9 @@ div img {
     border-radius: 5px;
     font-size: 20px;
     color: white;
+    position: absolute;
+    top: 100%;
+    left: 40%;
 }
 
 .botao-amarelo:hover {
@@ -60,9 +63,9 @@ div img {
 }
 
 
-/** 
+/**
   *
-  *  ESTILOS HOME 
+  *  ESTILOS HOME
   *
   **/
 
@@ -88,7 +91,7 @@ div img {
 
 /**
   *
-  *  ESTILOS COMPRAR 
+  *  ESTILOS COMPRAR
   *
   **/
 
