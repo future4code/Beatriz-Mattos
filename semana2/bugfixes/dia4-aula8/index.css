@@ -121,12 +121,19 @@ td button {
 }
 
 td button:hover {
-  background-color: #fe7e02;
+  background-color: #fe7e02
 }
 
 .container-do-search {
     margin-top: 20px;
     height: 100px;
+}
+
+.container-do-search input {
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    border-bottom: solid black;
 }
 
 
