@@ -67,20 +67,3 @@ console.log(mensagem)
 
 Considere um usuário que digita os números 3 e 4 respectivamente. Qual será a mensagem do terminal? Haverá algum erro? Justifique usando os conceitos de bloco ou escopo.
 //resposta: A mensagem no terminal é de erro, pois a variável let está dentro do bloco
-
-
-                    // EXERCÍCIO 4 //
-//Nos exercícios abaixo, será necessário que você trabalhe com a comparação de números. Leia abaixo:
-a. Crie um programa que receba dois números do usuário através do `prompt` e imprima-os na ordem **decrescente**.
-
-
-
-O que acontece com o seu programa se os 2 números forem iguais? (é só testar e colocar um comentário descrevendo o que aconteceu)
-
-b. Adapte o programa para que o usuário digite 3 números. Ainda os imprima na ordem **decrescente**.
-O que acontece como seu programa se os 3 números forem iguais? (é só testar e colocar um comentário descrevendo o que aconteceu)
-
-c. Agora, impeça que o usuário digite 3 números iguais. Caso todos sejam iguais, mostre um aviso ao usuário indicando que ele deve, ao menos, inserir um número diferente.
-
-
-                    // EXERCÍCIO 5 //
