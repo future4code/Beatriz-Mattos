@@ -117,7 +117,7 @@ if ((numero1===numero2) && (numero1===numero3)){
 let ossos = prompt("O animal possui ossos formando seu esqueleto?\n[s/n]");
 
 if (ossos ==="s") {
-  let pelos = prompt("O animal tem pêlos?\n[s]");
+  let pelos = prompt("O animal possui pêlos?\n[s]");
 
   if (pelos === "s") {
     let mamifero = prompt("Ele é mamífero?\n[s/n]");
@@ -131,7 +131,7 @@ if (ossos ==="s") {
         console.log("Mamífero não-humano.");
       }
     } else if (mamifero === "n") {
-      let penas = prompt("Ele possui penas?\n[s/n]");
+      let penas = prompt("O animal possui penas?\n[s/n]");
 
       if (penas === "s") {
         console.log("Então é uma ave.");
