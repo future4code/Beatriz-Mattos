@@ -10,6 +10,9 @@
  * 
  * 
  */
+
+ // obs.: entrega incompleta do projeto //
+
 iniciarJogo();
 
 let pontosUsuario = 0;
