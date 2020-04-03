@@ -13,29 +13,45 @@
 
  // obs.: entrega incompleta do projeto //
 
+
+
 iniciarJogo();
 
 let pontosUsuario = 0;
 let pontosComputador = 0;
 let cartasUsuario = [];
 let cartasComputador = [];
+let carta;
 
 function iniciarJogo() {
    console.log("Bem-vindo ao jogo de Blackjack!");
-   if (confirm("Quer iniciar uma nova rodada?")) {
-      while (usuario <= 21 || computador <= 21) {
-         let carta = comprarCarta();
-         cartasUsuario.push(carta.texto);
-         pontosUsuario.push(carta.valor);
-         let carta = comprarCarta();
-         cartasComputador.push(carta.texto);
-         pontosComputador.push(carta.valor);
-      }
-       {
-         
 
-      }
+   if (confirm("Quer iniciar uma nova rodada?")){
+      console.log("Vamos sortear uma carta!");
+
+      for (let i=0; i<2; i++);
+      let carta = comprarCarta();
+      console.log("Usuário cartas: "+cartasUsuario.valor+", pontuação: "+pontosUsuario.carta);
+      console.log("Computador cartas: "+cartasComputador.valor+", pontuação: "+pontosComputador.carta);
+
+         while (pontosUsuario <= 21 || pontosComputador <= 21) {
+            cartasUsuario.push(carta.texto);
+            pontosUsuario.push(carta.valor);
+            cartasComputador.push(carta.texto);
+            pontosComputador.push(carta.valor);
+         }
+            if (pontosUsuario > pontosComputador){
+               console.log("O usuário venceu!");
+            }
+               else if (pontosComputador > pontosUsuario) {
+                  console.log("O computador venceu!");
+               }
+                  else if (pontosUsuario === pontosComputador){
+                     console.log("Temos um empate!");
+                  }
+
    } else {
       console.log("O jogo acabou.");
    }
-}
+
+} 
