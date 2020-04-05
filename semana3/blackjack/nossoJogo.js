@@ -11,47 +11,42 @@
  * 
  */
 
- // obs.: entrega incompleta do projeto //
-
-
+let maoUsuario = [];
+let maoComputador = [];
+let somaUsuario = 0;
+let somaComputador = 0;
 
 iniciarJogo();
-
-let pontosUsuario = 0;
-let pontosComputador = 0;
-let cartasUsuario = [];
-let cartasComputador = [];
-let carta;
 
 function iniciarJogo() {
    console.log("Bem-vindo ao jogo de Blackjack!");
 
-   if (confirm("Quer iniciar uma nova rodada?")){
+   if (confirm("Quer iniciar uma nova rodada?")) {
       console.log("Vamos sortear uma carta!");
 
-      for (let i=0; i<2; i++);
-      let carta = comprarCarta();
-      console.log("Usuário cartas: "+cartasUsuario.valor+", pontuação: "+pontosUsuario.carta);
-      console.log("Computador cartas: "+cartasComputador.valor+", pontuação: "+pontosComputador.carta);
+      for (let i=0; i<2; i++) {
+         const cartaUsuario = comprarCarta();
+         const cartaComputador = comprarCarta();
 
-         while (pontosUsuario <= 21 || pontosComputador <= 21) {
-            cartasUsuario.push(carta.texto);
-            pontosUsuario.push(carta.valor);
-            cartasComputador.push(carta.texto);
-            pontosComputador.push(carta.valor);
-         }
-            if (pontosUsuario > pontosComputador){
-               console.log("O usuário venceu!");
-            }
-               else if (pontosComputador > pontosUsuario) {
-                  console.log("O computador venceu!");
-               }
-                  else if (pontosUsuario === pontosComputador){
-                     console.log("Temos um empate!");
-                  }
+         somaUsuario += cartaUsuario.valor;
+         somaComputador += cartaComputador.valor;
+                   
+         maoUsuario.push(cartaUsuario);
+         maoComputador.push(cartaComputador);
+      }
+
+      console.log("Usuário cartas: " + maoUsuario[0].texto + " e " + maoUsuario[1].texto + ", pontuação: " + somaUsuario);
+      console.log("Computador cartas: " + maoComputador[0].texto + " e " + maoComputador[1].texto + ", pontuação: " + somaComputador);
+
+      if (somaUsuario > somaComputador) {
+         console.log("O usuário venceu!");
+      } else if (somaComputador > somaUsuario) {
+         console.log("O computador venceu!");
+      } else if (somaUsuario === somaComputador) {
+         console.log("Temos um empate!");
+      }
 
    } else {
       console.log("O jogo acabou.");
    }
-
-} 
+}
