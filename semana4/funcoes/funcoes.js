@@ -18,7 +18,7 @@ resposta:
 undefined (retorna 'undefined' pois a string "Paula" não foi definida no arrayDeNomes)
 
 b. O código funcionaria se a `lista` fosse um array de números (ao invés de um array de `string`)  e o `nome` fosse um número, ao se chamar a função? Justifique sua resposta.
-resposta:
+resposta: Sim, funcionaria.
                   
 */
 
@@ -51,16 +51,88 @@ apresentacaoPessoa("Bia", 23, "Rua Jugurtha Lourival Glória 165", true)
 
           /* Exercício 5 */
 //resposta:
-let seculo = (ano) => {
-if (ano > 900 && ano <= 1000) {
-  console.log("O ano " + ano + " pertence ao século X") {
-  } else if (ano >= 1001 && ano <= 1100) {
-    console.log("O ano " + ano + " pertence ao século XI"){
-      else if (ano >= 1101 && ano <= 1200){
-        console.log("O ano " + ano + " pertence ao século XII"){
-          else if
-        }
-      }
+let descobrirSeculo = (ano) => {
+
+  if (ano >= 1001 && ano <= 1100) {
+    return "O ano " + ano + " pertence ao século XI.";
+
+  } else if (ano >= 1101 && ano <= 1200) {
+      return "O ano " + ano + " pertence ao século XII.";
+
+  } else if (ano >= 1201 && ano <= 1300) {
+      return "O ano " + ano + " pertence ao século XIII.";
+
+  } else if(ano >= 1301 && ano <= 1400){
+      return "O ano " + ano + " pertence ao século XIV.";
+
+  } else if(ano >= 1401 && ano <= 1500) {
+      return "O ano " + ano + " pertence ao século XV.";
+
+  } else if(ano >= 1501 && ano <= 1600) {
+      return "O ano " + ano + " pertence ao século XVI.";
+
+  } else if(ano >= 1601 && ano <= 1700) {
+      return "O ano " + ano + " pertence ao século XVII.";
+
+  } else if(ano >= 1701 && ano <= 1800) {
+      return "O ano " + ano + " pertence ao século XVIII.";
+
+  } else if(ano >= 1801 && ano <= 1900) {
+      return "O ano " + ano + " pertence ao século XIX.";
+
+  } else if(ano >= 1901 && ano <= 2000) {
+      return "O ano " + ano + " pertence ao século XX.";
+
+  } else if(ano >= 2001 && ano <= 2100) {
+      return "O ano " + ano + " pertence ao século XXI.";
+
+  } else {
+      return "Ano inválido";
+  }
+}
+
+          /* Exercício 6
+a. Escreva uma função que receba um array de números e devolva a quantidade de elementos nele */
+//resposta:
+const array = [10, 23, 45, 78, 90, 52, 35, 67, 84, 22];
+
+const elementosArray = (array) => {
+  return array.length;
+}
+
+console.log(elementosArray(array))
+
+/*b. Escreva uma função que receba um número e devolva um booleano indicando se ele é par ou não */
+//resposta:
+function parOuImpar (numero) {
+  if (numero % 2 === 0) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+/*c. Escreva uma função que receba um array de números e devolva a quantidade de números pares dentro dele*/
+//resposta:
+let devolvePares = (array) => {
+  const numerosPares = [];
+  for (let numero of array) {
+    let numeroPar = numero % 2;
+    if (numeroPar === 0) {
+      numerosPares.push(numeroPar)
+    }
+  }
+    return "O array possui " +numerosPares.lenght+ " números pares."
+}
+
+
+/*d. Reescreva seu código anterior (do item c) de tal forma que ele utilize a função do item b para verificar se o número é par*/
+//resposta:
+let devolvePares = (array) => {
+  const numerosPares = [];
+  for (let numero of array) {
+    if (parOuImpar(numero)){
+      numerosPares.push(numero)
     }
   }
 }
