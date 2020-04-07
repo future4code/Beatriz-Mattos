@@ -18,7 +18,7 @@ resposta:
 undefined (retorna 'undefined' pois a string "Paula" não foi definida no arrayDeNomes)
 
 b. O código funcionaria se a `lista` fosse um array de números (ao invés de um array de `string`)  e o `nome` fosse um número, ao se chamar a função? Justifique sua resposta.
-resposta: Sim, funcionaria.
+resposta: Funcionaria, pois mudariam apenas os tipos de dados do indice, mas seria necessário converter as strings para números também caso houvesse essa mudança.
                   
 */
 
