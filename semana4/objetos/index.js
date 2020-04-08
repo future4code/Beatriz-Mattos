@@ -1,0 +1,3 @@
+function criarPost(ev) {
+    
+}
