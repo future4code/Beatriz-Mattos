@@ -6,93 +6,61 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <script src="index.js" defer></script>
     <link href="index.css" type="text/css" rel="stylesheet" />
-    <title>Document</title>
+    <title>Planner - Beatriz de Mattos - Turma Julian</title>
   </head>
 
   <body>
     <h1>Planner semanal</h1>
 
     <div class="seletorContainer">
+
       <label for="">Tarefa: </label>
-      <input type="text" name="novaTarefa" placeholder="Insira sua tarefa aqui :)" id="novaTarefa">
-      <select id="diaSemana">
-        <option value="segunda">Segunda</option>
-        <option value="terca">Terça</option>
-        <option value="quarta">Quarta</option>
-        <option value="quinta">Quinta</option>
-        <option value="sexta">Sexta</option>
-        <option value="sabado">Sábado</option>
-        <option value="domingo">Domingo</option>
+      <input type="text" id="meu-input" placeholder="Insira sua tarefa aqui :)" value="">
+
+      <select id="dia-semana">
+        <option value="domingo" id="1">Domingo</option>
+        <option value="segunda" id="2">Segunda</option>
+        <option value="terca" id="3">Terça</option>
+        <option value="quarta" id="4">Quarta</option>
+        <option value="quinta" id="5">Quinta</option>
+        <option value="sexta" id="6">Sexta</option>
+        <option value="sabado" id="7">Sábado</option>
+        
       </select>
 
-      <button onclick="criarTarefa()">Criar tarefa</button>
+      <button value="" id="botaoEnviar" onclick="criarTarefa()">Criar</button>
     </div>
 
     <hr>
 
-    <div id="main-container">
+    <div id="diasContainer" class="containerPrincipal">
 
-      <div id="segunda"><h4>Segunda</h4>
-        <input type="text">
-          <ul class="">
-            <li>
+      <div id="domingo" class="itensSemana"><h4>Domingo</h4>
+        <ul id="tarefa-domingo"></ul>
+      </div>
 
-            </li>
-          </ul>
+      <div id="segunda" class="itensSemana"><h4>Segunda</h4>
+        <ul id="tarefa-segunda"></ul>
       </div>
       
-      <div id="terca"><h4>Terça</h4>
-        <input type="text">
-         <ul>
-            <li>
-
-            </li>
-          </ul>
+      <div id="terca" class="itensSemana"><h4>Terça</h4>
+        <ul id="tarefa-terca"></ul>
       </div>
 
-      <div id="quarta"><h4>Quarta</h4>
-        <input type="text">
-          <ul>
-            <li>
-
-            </li>
-          </ul>
+      <div id="quarta" class="itensSemana"><h4>Quarta</h4>
+        <ul id="tarefa-quarta"></ul>
       </div>
 
-      <div id="quinta"><h4>Quinta</h4>
-        <input type="text">
-          <ul>
-            <li>
-
-            </li>
-          </ul>
+      <div id="quinta" class="itensSemana"><h4>Quinta</h4>
+        <ul id="tarefa-quinta"></ul>
       </div>
 
-      <div id="sexta"><h4>Sexta</h4>
-        <input type="text">
-         <ul>
-            <li>
-
-            </li>
-          </ul>
+      <div id="sexta" class="itensSemana"><h4>Sexta</h4>
+        <ul id="tarefa-sexta"></ul>
       </div>
 
-      <div id="sabado"><h4>Sábado</h4>
-        <input type="text">
-          <ul>
-            <li>
-
-            </li>
-          </ul>
-      </div>
-
-      <div id="domingo"><h4>Domingo</h4>
-        <input type="text">
-          <ul>
-            <li>
-
-            </li>
-          </ul>
+      <div id="sabado" class="itensSemana"><h4>Sábado</h4>
+        <ul id="tarefa-sabado"></ul>
       </div>
 
     </div>
