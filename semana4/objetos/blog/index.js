@@ -1,46 +1,40 @@
-const objetoPost = {
-    titulo: document.getElementById("titulo-post").value,
-    autor: document.getElementById("autor-post").value,
-    conteudo: document.getElementById("conteudo-post").value
-}
-
 const arrayPosts = [];
+//global
 
+// const objetoPost = {
+//     titulo: document.getElementById("titulo-post").value,
+//     autor: document.getElementById("autor-post").value,
+//     conteudo: document.getElementById("conteudo-post").value
+// }
 
-function onChangeCapturarValores(ev) {
+// function onChangeCapturarValores(ev) {
+//     objetoPost.titulo = document.getElementById("titulo-post").value;
+//     objetoPost.autor = document.getElementById("autor-post").value;
+//     objetoPost.conteudo = document.getElementById("conteudo-post").value;
+// }
+
+function criarPost(ev) {
+    const objetoPost = {
+        titulo: document.getElementById("titulo-post").value,
+        autor: document.getElementById("autor-post").value,
+        conteudo: document.getElementById("conteudo-post").value
+    }
+
     objetoPost.titulo = document.getElementById("titulo-post").value;
     objetoPost.autor = document.getElementById("autor-post").value;
     objetoPost.conteudo = document.getElementById("conteudo-post").value;
-}
-
-function criarPost(ev) {
-
-    limparCampos();
-
-    // const objetoPermanente = {
-    //     titulo: "",
-    //     autor: "",
-    //     conteudo: ""
-    // }
-
-    // objetoPermanente.titulo = objetoPost.titulo;
-    // objetoPermanente.autor = objetoPost.autor;
-    // objetoPermanente.conteudo = objetoPost.conteudo;
-
-    // arrayPosts.push(objetoPermanente);
 
     arrayPosts.push(objetoPost);
+    console.log(arrayPosts);    
+    limparCampos();
 
-    for (let i = 0; i < arrayPosts.length; i++) {
-        const conteudoBlog = document.getElementById("conteudo-blog");
-        conteudoBlog.innerHTML += "<h3>" + arrayPosts[i].titulo + "</h3>";
-
-        conteudoBlog.innerHTML += "<em>" + arrayPosts[i].autor + "</em>";
-
-        conteudoBlog.innerHTML += "<p>" + arrayPosts[i].conteudo + "</p>";
-    }
+    const conteudoBlog = document.getElementById("conteudo-blog");
     
+    conteudoBlog.innerHTML += "<h3>" + objetoPost.titulo + "</h3>";
+    conteudoBlog.innerHTML += "<em>" + objetoPost.autor + "</em>";
+    conteudoBlog.innerHTML += "<p>" + objetoPost.conteudo + "</p>"; 
 }
+
 
 function limparCampos() {
     document.getElementById("titulo-post").value = '';
