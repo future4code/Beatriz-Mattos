@@ -11,14 +11,16 @@
 <body>
     
     <main>
-
+       <!-- início da seção de cadastro de despesa -->
         <section id="controlador-despesas">
 
             <h2>Controlador de despesas</h2>
 
             <h3>Cadastrar despesa</h3>
                 <label for="">Valor:</label>
-                <input type="text" id="valor-despesa">
+                <input type="number" id="valor-despesa">
+
+                <br />
 
                 <label for="">Tipo:</label>
                 <select name="" id="select-controlador-despesas">
@@ -28,12 +30,15 @@
                     <option value="outros">Outros</option>
                 </select>
 
+                <br />
+
                 <label for="">Descrição:</label>
                 <textarea id="descricao-despesa" cols="30" rows="10"></textarea>
 
                 <button onclick="cadastrarDespesa()">Cadastrar despesa</button>
 
         </section>
+        <!-- fim da seção de cadastro de despesa -->
 
         <section id="despesas-detalhadas">
 
@@ -46,21 +51,27 @@
                     <option value="outros">Outros</option>
                 </select>
 
-                <label for="">Valor mínimo:</label>
-                <input type="text">
-                <button>Filtrar</button>
-                <button>Limpar filtros</button>
+                <br />
 
-                <div id="area-despesas-detalhadas"></div>            
+                <label for="">Valor mínimo:</label>
+                <input type="number">
+                <button onclick="filtrarDespesas()">Filtrar</button>
+                <button onclick="limparCampos()">Limpar filtros</button>
+
+            <!-- início da seção responsável por mostrar as despesas detalhadas -->
+                <section id="area-despesas-detalhadas"></section>          
+             <!-- fim da seção -->  
 
         </section>
 
+        <!-- início da seção que mostra o total dos valores das despesas -->
         <section id="extrato-despesas">
             <h2>Extrato</h2>
             <h3>Valor total:</h3>
 
         </section>
-        
+        <!-- fim da seção -->
+
     </main>
 
 </body>
