@@ -35,7 +35,7 @@
                 <label for="">Descrição:</label>
                 <textarea id="descricao-despesa" cols="30" rows="10"></textarea>
 
-                <button onclick="cadastrarDespesa()">Cadastrar despesa</button>
+                <button onclick="cadastrarDespesa(event)">Cadastrar despesa</button>
 
         </section>
         <!-- fim da seção de cadastro de despesa -->
@@ -55,17 +55,21 @@
 
                 <label for="">Valor mínimo:</label>
                 <input type="number">
+
+                <label for="">Valor máximo:</label>
+                <input type="number">
+
                 <button onclick="filtrarDespesas()">Filtrar</button>
                 <button onclick="limparCampos()">Limpar filtros</button>
 
             <!-- início da seção responsável por mostrar as despesas detalhadas -->
-                <section id="area-despesas-detalhadas"></section>          
+                <section id="area-despesas-detalhadas" class=""></section>          
              <!-- fim da seção -->  
 
         </section>
 
         <!-- início da seção que mostra o total dos valores das despesas -->
-        <section id="extrato-despesas">
+        <section id="extrato-despesas" class="nova-despesa">
             <h2>Extrato</h2>
             <h3>Valor total:</h3>
 
