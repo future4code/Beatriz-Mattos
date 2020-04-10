@@ -4,33 +4,15 @@ main {
 }
 
 
-#controlador-despesas {
-    border: 1px solid black;
-    padding: 8px;
-    margin: 2px;
-    width: 300px; 
-}
-
-#controlador-despesas {
-    border: 1px solid black;
-    padding: 8px;
-    margin: 2px;
-    width: 300px; 
-}
-
-#despesas-detalhadas {
-    border: 1px solid black;
-    padding: 8px;
-    margin: 2px;
-    width: 300px; 
-}
-
+#controlador-despesas,
+#despesas-detalhadas,
 #extrato-despesas {
     border: 1px solid black;
     padding: 8px;
     margin: 2px;
     width: 300px; 
 }
+
 
 .nova-despesa {
     border: 1px solid black;
