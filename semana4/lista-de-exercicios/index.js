@@ -95,3 +95,29 @@ function trigonometria(a, b, c) {
 }
 
 */
+
+/* Lógica de programação - Exercício 4
+
+function testandoNumeros (a, b) {
+
+    if (a > b) {
+        console.log("O maior é: " + a)
+    } else {
+            console.log("O maior é: " + b)
+        }
+
+        if ((a % b) === 0) {
+            console.log(a + " é divisível por " + b)
+        } else {
+            console.log(a + " não é divisível por " + b)
+        }
+            if ((a - b) < 0) {
+                console.log("A diferença entre eles é " + ((a - b) * -1))
+            } else {
+                console.log("A diferença entre eles é " + (a - b))
+            }
+}
+
+console.log(testandoNumeros(15, 30))
+
+*/
