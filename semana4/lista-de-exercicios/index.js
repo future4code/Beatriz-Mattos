@@ -34,3 +34,11 @@ Em outras linhas, é impresso o comprimento dos demais arrays, que são, respect
 
 */
 
+/* Exercício 4
+
+O código exibe um array de números com muitos elementos, e 2 variáveis, sendo elas numero1 com valor Infinity e numero2 com valor iniciado em 0.
+O laço for faz a "varredura" no array de números, com o apelido 'numero' para cada elemento do mesmo; é criada a condição if comparando se o número é menor que numero1 e se essa condição for verdadeira, numero1 recebe esse valor;
+é criada outra condição if comparando se o numero2 é maior que o numero e se essa condição for verdadeira, numero2 recebe o valor de numero.
+Fora do escopo, é impresso no console o resultado do array numero1 e numero2.
+
+*/
