@@ -65,3 +65,18 @@ d) (false || !false) && !(true && true) = true
 e) !(true) && !(true) || (!false && true && true) = true
 
 */
+
+/* Lógica de programação - Exercício 2
+
+O código não funciona porque a variável quantidadeNumerosPares não foi definida, e mesmo se fosse definida com qualquer número, entraria em um loop infinito digno de travar o console, pois o i nunca atenderia a condição solicitada.
+Não foi definido nenhum incremento e o console só imprimiria o valor de i multiplicado por 2, e queremos que seja impresso os números pares de acordo com o valor definido na variável inicial.
+
+Uma das resoluções poderia ser:
+
+const quantidadeDeNumerosPares = 3;
+
+for (let i = 0; i < quantidadeDeNumerosPares; i++) {
+console.log (i * 2);
+}
+
+*/
