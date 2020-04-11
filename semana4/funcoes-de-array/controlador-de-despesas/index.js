@@ -1,45 +1,52 @@
 const arrayDespesa = [];
-const arrayFiltro = [];
+let somaDespesa = 0;
 
+function cadastrarDespesa(ev) {
+    
+    const objetoDespesa = {
+        valor: document.getElementById("valor-despesa").value,
+        tipo: document.getElementById("select-controlador-despesas").value,
+        descricao: document.getElementById("descricao-despesa").value, 
+    }
 
-const objetoDespesa = {
-    valor: document.getElementById("valor-despesa").value,
-    tipo: document.getElementById("select-controlador-despesas").value,
-    descricao: document.getElementById("descricao-despesa").value;
-}
+    if (objetoDespesa.valor === "" || objetoDespesa.tipo === "" || objetoDespesa.descricao === "") {
+        alert("Ops, esqueceu um campo em branco!");
+    
+    }
+    
+    let somaDespesa = somaExtrato(Number(objetoDespesa.valor));
+    const elementoExtrato = document.getElementById("extrato-despesas");
+    elementoExtrato.innerHTML = "<h2>Extrato</h2> \n <h3>Valor total:</h3> " + somaDespesa;
 
-
-if (valor === ""){
-    alert("Esqueceu de digitar o valor!")
-} else if (tipo === "") {
-    alert("Esqueceu de selecionar o tipo!")
-} else if (descricao === "") {
-    alert("Esqueceu de digitar a descrição!")
-}
-
-
-
-function cadastrarDespesa(){
-    const valorDespesa = document.getElementById("valor-despesa").value;
-    const tipoDespesa = document.getElementById("select-controlador-despesas").value;
-    const descricaoDespesa = document.getElementById("descricao-despesa").value;
-    const areaMostraDespesa = document.getElementById("area-despesas-detalhadas").value;
-    areaMostraDespesa.innerHTML += "<p>Despesa:</p> <p>Valor: " + valorDespesa + "</p>" + "<p>Tipo: " + tipoDespesa + "</p>" + "<p>Descrição: " + descricaoDespesa + "</p>"
-
+    const areaMostraDespesa = document.getElementById("area-despesas-detalhadas");
+    areaMostraDespesa.innerHTML += "<strong>Despesa:</strong> <p>Valor: " + objetoDespesa.valor + "</p>" + "<p>Tipo: " + objetoDespesa.tipo + "</p>" + "<p>Descrição: " + objetoDespesa.descricao + "</p>";
+    
     arrayDespesa.push(objetoDespesa);
-
-    objetoDespesa.valor = document.getElementById("valor-despesa").value;
-    objetoDespesa.tipo = document.getElementById("select-contolador-despesas").value;
-    objetoDespesa.descricao = document.getElementById("descricao-despesa").value;
-    return filtrarDespesas();
 }
 
+function limparFiltros() {
+    document.getElementById("valor-despesa").value = "";
+    document.getElementById("select-contolador-despesas").value = "";
+    document.getElementById("descricao-despesa").value = "";
+}
 
 function filtrarDespesas() {
-
+    const areaMostraDespesa = document.getElementById("area-despesas-detalhadas");
+    areaMostraDespesa.innerHTML = "";
+    
+    const tipoDespesa = document.getElementById("select-despesas-detalhadas").value;
+    const valorMinimo = Number(document.getElementById("valor-minimo").value);
+    const valorMaximo = Number(document.getElementById("valor-maximo").value);
+    
+    const novoArrayFiltrado = arrayDespesa.filter(objeto => objeto.tipo === tipoDespesa && objeto.valor >= valorMinimo && objeto.valor <= valorMaximo);
+    
+    for (let i = 0; i < novoArrayFiltrado.length; i++) {
+        areaMostraDespesa.innerHTML += "<strong>Despesa:</strong> <p>Valor: " + novoArrayFiltrado[i].valor + "</p>" + "<p>Tipo: " + novoArrayFiltrado[i].tipo + "</p>" + "<p>Descrição: " + novoArrayFiltrado[i].descricao + "</p>";
+    }
 }
 
+function somaExtrato(valor) {
+    somaDespesa += valor;
 
-function limparCampos() {
- 
+    return somaDespesa; 
 }

@@ -18,12 +18,13 @@
 
             <h3>Cadastrar despesa</h3>
                 <label for="">Valor:</label>
-                <input type="number" id="valor-despesa">
+                <input type="number" id="valor-despesa" placeholder="Insira o valor em reais">
 
                 <br />
 
                 <label for="">Tipo:</label>
                 <select name="" id="select-controlador-despesas">
+                    <option value="vazio">Escolha uma opção</option>
                     <option value="casa">Casa</option>
                     <option value="alimentacao">Alimentação</option>
                     <option value="transporte">Transporte</option>
@@ -45,6 +46,7 @@
                 <h2>Despesas detalhadas</h2>
                 <label for="">Tipo:</label>
                 <select name="" id="select-despesas-detalhadas">
+                    <option value="vazio">Escolha uma opção</option>
                     <option value="casa">Casa</option>
                     <option value="alimentacao">Alimentação</option>
                     <option value="transporte">Transporte</option>
@@ -54,13 +56,13 @@
                 <br />
 
                 <label for="">Valor mínimo:</label>
-                <input type="number">
+                <input type="number" id="valor-minimo">
 
                 <label for="">Valor máximo:</label>
-                <input type="number">
+                <input type="number" id="valor-maximo">
 
                 <button onclick="filtrarDespesas()">Filtrar</button>
-                <button onclick="limparCampos()">Limpar filtros</button>
+                <button onclick="limparFiltros()">Limpar filtros</button>
 
             <!-- início da seção responsável por mostrar as despesas detalhadas -->
                 <section id="area-despesas-detalhadas" class=""></section>          
@@ -69,7 +71,7 @@
         </section>
 
         <!-- início da seção que mostra o total dos valores das despesas -->
-        <section id="extrato-despesas" class="nova-despesa">
+        <section id="extrato-despesas">
             <h2>Extrato</h2>
             <h3>Valor total:</h3>
 
