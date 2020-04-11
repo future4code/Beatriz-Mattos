@@ -28,8 +28,9 @@ A segunda encaixaria no case Default, gerando um alert com a mensagem "TIPO DE I
 
 O código exibe um array de números e 2 arrays vazios, array1 e array2.
 O laço for foi estabelecido para "varrer" o array de números, passando por todos os elementos.
-É criada a condição if fazendo uma operação do número inserido com módulo (numero%2), comparando se o resto é igual a zero, se essa condição for verdadeira, o número é adicionado com o método .push ao array1, caso contrário o número é adicionado ao array2.
+É criada a condição if fazendo uma operação do número com módulo (numero%2), comparando se o resto é igual a zero, se essa condição for verdadeira, o número é adicionado com o método .push ao array1, caso contrário o número é adicionado ao array2.
 É impresso no console uma mensagem "Quantidade total de números", + o comprimento do array numeros, que é 14.
 Em outras linhas, é impresso o comprimento dos demais arrays, que são, respectivamente, 6 e 8.
 
 */
+
