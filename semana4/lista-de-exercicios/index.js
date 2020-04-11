@@ -80,3 +80,18 @@ console.log (i * 2);
 }
 
 */
+
+/* Lógica de programação - Exercício 3 
+
+function trigonometria(a, b, c) {
+
+    if (a === b && a === c) {
+        return "Equilátero"
+    } else if (a === b && a !== c || b === c && b !== a || a === c && a !== b) {
+        return "Isósceles"
+    } else {
+        return "Escaleno"
+    }
+}
+
+*/
