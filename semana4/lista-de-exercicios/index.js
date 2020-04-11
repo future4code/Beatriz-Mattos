@@ -42,3 +42,26 @@ O laço for faz a "varredura" no array de números, com o apelido 'numero' para 
 Fora do escopo, é impresso no console o resultado do array numero1 e numero2.
 
 */
+
+/* Exercícios de lógica de programação - Exercício 1
+
+const booleano1 = true
+const booleano2 = false
+const booleano3 = !booleano2
+const booleano4 = !booleano3 
+
+...logo:
+const booleano3 = !false
+const booleano4 = !true;
+
+a) true && false && false = false
+
+b) (true && false) || !true = false
+
+c) (false || !false) && (!true || true) = true
+
+d) (false || !false) && !(true && true) = true
+
+e) !(true) && !(true) || (!false && true && true) = true
+
+*/
