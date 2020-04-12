@@ -210,3 +210,21 @@ O objeto é um tipo especial de variável que armazena propriedades (ex.: nome, 
 Em JavaScript, praticamente qualquer tipo de dado é um objeto.
 
 */
+
+
+/* Exercícios de objetos - Exercício 2
+
+function criaRetangulo(lado1, lado2) {
+    const meuRetangulo = {
+        largura: lado1,
+        altura: lado2,
+        perímetro: 2 * (lado1 + lado2),
+        area: (lado1 * lado2)
+    }
+
+    return meuRetangulo
+}
+
+*/
+
+
