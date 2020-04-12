@@ -391,7 +391,7 @@ const enviarMensagem = consultas.map((consulta) => {
         pronomeTratamento = "Sra. ";
         comoLembrar = "lembrá-la";
     }
-    else if(consulta.genero === "masculino") {
+    else {
         pronomeTratamento = "Sr. ";
         comoLembrar = "lembrá-lo"
     }
