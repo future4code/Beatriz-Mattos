@@ -228,3 +228,15 @@ function criaRetangulo(lado1, lado2) {
 */
 
 
+/*  Exercícios de objetos - Exercício 3
+
+const filmeFavorito = {
+    titulo: "Matrix",
+    ano: 1999,
+    diretor: "Lana Wachowski",
+    elenco: ["Keanu Reeves", "Carrie-Ane Moss", "Laurence Fishburne", "Hugo Weaving"]
+}
+
+console.log("Venha assistir ao filme " + filmeFavorito.titulo + ", de " + filmeFavorito.ano + ", dirigido por " + filmeFavorito.diretor + " e estrelado por " + filmeFavorito.elenco)
+
+*/
