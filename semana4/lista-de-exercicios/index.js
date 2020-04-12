@@ -192,3 +192,11 @@ function imprimeMaiorEMenor(meuArray) {
 }
 
 */
+
+/* Exercícios de funções - Exercício 2
+
+const sayHello = () => alert("Hello, LaBeNu! :)");
+
+sayHello();
+
+*/
