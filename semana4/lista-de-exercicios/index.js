@@ -240,3 +240,26 @@ const filmeFavorito = {
 console.log("Venha assistir ao filme " + filmeFavorito.titulo + ", de " + filmeFavorito.ano + ", dirigido por " + filmeFavorito.diretor + " e estrelado por " + filmeFavorito.elenco)
 
 */
+
+
+/*  Exercícios de objetos - Exercício 4
+
+const pessoa = {
+    nome: "Maria",
+    idade: "47",
+    email: "maria@gmail.com",
+    endereco: "Rua José Cândido, 90"
+}
+
+function anonimizarPessoa(pessoa) {
+    const anon = {
+        ...pessoa,
+	nome: "Anônimo"
+    }
+    
+    return anon
+}
+
+*/
+
+
