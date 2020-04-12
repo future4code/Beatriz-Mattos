@@ -372,3 +372,39 @@ const entradaBloqueada = pessoasFila.filter(pessoa => {
 console.log(entradaBloqueada)
 
 */
+
+
+/* Funções de array - Exercício 5
+
+const consultas = [
+	{ nome: "João", genero: "masculino", cancelada: true, dataDaConsulta: "01/10/2019" },
+	{ nome: "Pedro", genero: "masculino", cancelada: false, dataDaConsulta: "02/10/2019" },
+	{ nome: "Paula", genero: "feminino", cancelada: true, dataDaConsulta: "03/11/2019" },
+	{ nome: "Márcia", genero: "feminino", cancelada: false, dataDaConsulta: "04/11/2019" }
+]
+
+const enviarMensagem = consultas.map((consulta) => {
+    let pronomeTratamento = "";
+    let comoLembrar= "";
+
+    if(consulta.genero === "feminino") {
+        pronomeTratamento = "Sra. ";
+        comoLembrar = "lembrá-la";
+    }
+    else if(consulta.genero === "masculino") {
+        pronomeTratamento = "Sr. ";
+        comoLembrar = "lembrá-lo"
+    }
+
+    if(consulta.cancelada === false) {
+        return `Olá, ${pronomeTratamento} ${consulta.nome}. Estamos enviando esta mensagem para ` + `${comoLembrar} da sua consulta no dia ${consulta.dataDaConsulta}. Por favor, acuse o recebimento deste e-mail.`
+    }
+    else {
+        return `Olá, ${pronomeTratamento} ${consulta.nome}. Infelizmente, sua consulta marcada para o dia ${consulta.dataDaConsulta} foi cancelada. Se quiser, pode entrar em contato conosco para remarcá-la.`
+    }
+
+})
+
+console.log(enviarMensagem)
+
+*/
