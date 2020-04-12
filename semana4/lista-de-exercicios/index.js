@@ -200,3 +200,13 @@ const sayHello = () => alert("Hello, LaBeNu! :)");
 sayHello();
 
 */
+
+/* Exercícios de objetos - Exercício 1
+
+O array é basicamente uma estrutura capaz de armazenar um conjunto de valores. Cada um dos seus elementos possuem um índice e são enumerados sequencialmente.
+Pode ser utilizado para atualizar o valor de um item que já existe, remover elementos, acrescentar um novo e etc.
+
+O objeto é um tipo especial de variável que armazena propriedades (ex.: nome, idade, endereço; sempre uma associação entre uma chave e um valor) e métodos(funções).
+Em JavaScript, praticamente qualquer tipo de dado é um objeto.
+
+*/
