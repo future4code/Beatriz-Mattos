@@ -307,3 +307,38 @@ const criancasEAdolescentes = arrayPessoas.filter(filtrandoIdade => {
 console.log(criancasEAdolescentes)
 
 */
+
+
+/* Funções de array - Exercício 3
+
+const array = [1, 2, 3, 4, 5, 6]
+
+//questão A. array que retorna todas as entradas multiplicadas por 2:
+const multiplicadosPorDois = array.map((numero, idx, arr) => {
+	return numero * 2;
+})
+
+console.log(multiplicadosPorDois)
+
+
+//questão B. array que retorna com as entradas multiplicadas por 3 e como strings:
+const multiplicadosPorTres = array.map((numero, idx, arr) => {
+    return String(numero * 3);
+})
+
+console.log(multiplicadosPorTres)
+
+
+//questão C. retorne um array de strings dizendo: "${número} é par/impar":
+const parOuImparStrings = array.map((numero, idx, arr) => {
+    if(numero % 2 === 0) {
+        return numero + " é par"
+    }
+    else {
+        return numero + " é impar"
+    }
+})
+
+console.log(parOuImparStrings)
+
+*/
