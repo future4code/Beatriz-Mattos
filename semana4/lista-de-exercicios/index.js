@@ -282,3 +282,28 @@ while(i < array.length) {i++};
 
 
 */
+
+
+/* Funções de array - Exercício 2
+
+const arrayPessoas = [
+	{ nome: "Pedro", idade: 20 },
+	{ nome: "João", idade: 10 },
+	{ nome: "Paula", idade: 12 },
+	{ nome: "Artur", idade: 89 } 
+]
+
+const pessoasAdultas = arrayPessoas.filter(filtrandoIdade => {
+    return filtrandoIdade.idade >= 20
+})
+
+console.log(pessoasAdultas)
+
+
+const criancasEAdolescentes = arrayPessoas.filter(filtrandoIdade => {
+    return filtrandoIdade.idade < 20
+})
+
+console.log(criancasEAdolescentes)
+
+*/
