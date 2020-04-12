@@ -263,3 +263,22 @@ function anonimizarPessoa(pessoa) {
 */
 
 
+/* Funções de array - Exercício 1
+
+1. Laço for:
+
+let array = [];
+for(let i = 0; i < array.length; i++) {};
+
+
+2. For... of:
+
+for(let numero of array) {};
+
+
+3. While:
+
+while(i < array.length) {i++};
+
+
+*/
