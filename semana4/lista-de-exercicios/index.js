@@ -121,3 +121,74 @@ function testandoNumeros (a, b) {
 console.log(testandoNumeros(15, 30))
 
 */
+
+/* Exercícios de funções - Exercício 1 
+
+const array = [3, 4, 2, 6, 6, 8, 1, 9, 8, 2, 1, 13, 2358, -15, -13]
+imprimeMaiorEMenor(array);
+
+function imprimeMaiorEMenor(meuArray) {
+
+    let segundoMaior = 0;
+    let segundoMenor = 0;
+
+    let indicadorDoMaior = true;
+    let indicadorDoMenor = true;
+
+    let arraySemMaiorEMenor = [];
+
+    for (let i = 0; i < meuArray.length; i++) {
+    
+        //indicadores começam com valor true para cada elemento a ser testado
+        indicadorDoMaior = true;
+        indicadorDoMenor = true;
+        
+        for (let j = 0; j < meuArray.length; j++) {
+            
+            if (i !== j) {
+                if(meuArray[j] > meuArray[i]) {
+                    indicadorDoMaior = false;
+                } 
+                
+                if (meuArray[j] < meuArray[i]) {
+                    indicadorDoMenor = false;
+                }
+            }
+        }
+
+        if (!indicadorDoMaior && !indicadorDoMenor ) {
+            arraySemMaiorEMenor.push(meuArray[i]);
+        }
+    }
+
+    for (let i = 0; i < arraySemMaiorEMenor.length; i++) {
+        indicadorDoMaior = true;
+        indicadorDoMenor = true;
+        
+        for (let j = 0; j < arraySemMaiorEMenor.length; j++) {
+            
+            if (i !== j) {
+                if(arraySemMaiorEMenor[j] > arraySemMaiorEMenor[i]) {
+                    indicadorDoMaior = false;
+                } 
+                
+                if (arraySemMaiorEMenor[j] < arraySemMaiorEMenor[i]) {
+                    indicadorDoMenor = false;
+                }
+            }
+        }
+
+        if (indicadorDoMaior) {
+            segundoMaior = arraySemMaiorEMenor[i];
+        }
+
+        if (indicadorDoMenor) {
+            segundoMenor = arraySemMaiorEMenor[i];
+        }
+    }
+
+    console.log(segundoMaior);
+    console.log(segundoMenor);
+}
+
+*/
