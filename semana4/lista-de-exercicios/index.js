@@ -342,3 +342,33 @@ const parOuImparStrings = array.map((numero, idx, arr) => {
 console.log(parOuImparStrings)
 
 */
+
+
+/* Funções de array - Exercício 4
+const pessoasFila = [
+	{ nome: "Paula", idade: 12, altura: 1.8},
+	{ nome: "João", idade: 20, altura: 1.3},
+	{ nome: "Pedro", idade: 15, altura: 1.9},
+	{ nome: "Luciano", idade: 22, altura: 1.8},
+	{ nome: "Artur", idade: 10, altura: 1.2},
+	{ nome: "Soter", idade: 70, altura: 1.9}
+]
+
+//A regra para entrar na montanha russa do terror é: ter, no mínimo, 1.5m de altura; ser mais velho do que 14 anos e mais novo do que 60 anos.
+
+//questão A. devolva outro array somente com as pessoas que tem permissão de entrar no brinquedo:
+const entradaPermitida = pessoasFila.filter(pessoa => {
+    return pessoa.altura >= 1.5 && pessoa.idade > 14 && pessoa.idade < 60;
+})
+
+console.log(entradaPermitida)
+
+
+//questão B. devolva outro array somente com as pessoas que não podem entrar no brinquedo:
+const entradaBloqueada = pessoasFila.filter(pessoa => {
+    return pessoa.altura < 1.5 || pessoa.idade < 14 || pessoa.idade > 60;
+})
+
+console.log(entradaBloqueada)
+
+*/
