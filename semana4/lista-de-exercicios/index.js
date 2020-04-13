@@ -408,3 +408,33 @@ const enviarMensagem = consultas.map((consulta) => {
 console.log(enviarMensagem)
 
 */
+
+
+/* Funções de array - Exercício 6
+
+const contas = [
+	{ cliente: "João", saldoTotal: 1000, compras: [100, 200, 300] },
+	{ cliente: "Paula", saldoTotal: 7500, compras: [200, 1040] },
+	{ cliente: "Pedro", saldoTotal: 10000, compras: [5140, 6100, 100, 2000] },
+	{ cliente: "Luciano", saldoTotal: 100, compras: [100, 200, 1700] },
+	{ cliente: "Artur", saldoTotal: 1800, compras: [200, 300] },
+	{ cliente: "Soter", saldoTotal: 1200, compras: [] }
+]
+
+// criar função que receba um array com os objetos do tipo acima e atualize o saldo total individual de cada um, sem criar um novo array.
+function totalCompras(meuArray) {
+    let valorTotal = 0;
+    meuArray.forEach((compra) => {
+        valorTotal += compra
+    })
+    return valorTotal
+}
+
+contas.forEach((cliente) => {
+    let somaCompras = totalCompras(cliente.compras)
+    cliente.saldoTotal -= somaCompras
+})
+
+console.log(contas)
+
+*/
