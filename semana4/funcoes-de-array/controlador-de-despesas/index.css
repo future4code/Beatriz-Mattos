@@ -1,0 +1,14 @@
+main {
+    display: flex;
+    justify-content: space-around;
+}
+
+
+#controlador-despesas,
+#despesas-detalhadas,
+#extrato-despesas {
+    border: 1px solid black;
+    padding: 8px;
+    margin: 2px;
+    width: 300px; 
+}
