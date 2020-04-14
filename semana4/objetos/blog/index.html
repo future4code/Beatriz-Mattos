@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="index.js" defer></script>
+    <link href="index.css" type="text/css" rel="stylesheet" />
+    <title>Microblog</title>
+</head>
+
+<body>
+    <header>
+        <h1>Microblog</h1>
+    </header>
+
+    <section id="container-formulario">
+
+        <h3>Publicar:</h3>
+
+        <div>
+            <label for="titulo">Título:</label>
+            <input type="text" id="titulo-post" placeholder="Adicione o título">
+        </div>
+
+        <div>
+            <label for="autor">Autor:</label>
+            <input type="text" id="autor-post" placeholder="Adicione o autor">
+        </div>
+
+        <div>
+            <label for="conteudo">Conteúdo:</label>
+            <textarea cols="30" rows="10" id="conteudo-post" placeholder="Adicione um conteúdo relevante!"></textarea>
+            
+        </div>
+
+        <div>
+            <button onclick="criarPost(event)">Crie meu post!</button>
+        </div>
+
+    </section>
+
+    <br />
+
+    <section id="conteudo-blog">
+        
+    </section>
+    
+</body>
+
+</html>

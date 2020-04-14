@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="index.js" defer></script>
+    <link href="index.css" type="text/css" rel="stylesheet" />
+    <title>Planner - Beatriz de Mattos - Turma Julian</title>
+  </head>
+
+  <body>
+    <h1>Planner semanal</h1>
+
+    <div class="seletorContainer">
+
+      <label for="">Tarefa: </label>
+      <input type="text" id="meu-input" placeholder="Insira sua tarefa aqui :)" value="">
+
+      <select id="dia-semana">
+        <option value="domingo" id="1">Domingo</option>
+        <option value="segunda" id="2">Segunda</option>
+        <option value="terca" id="3">Terça</option>
+        <option value="quarta" id="4">Quarta</option>
+        <option value="quinta" id="5">Quinta</option>
+        <option value="sexta" id="6">Sexta</option>
+        <option value="sabado" id="7">Sábado</option>
+        
+      </select>
+
+      <button value="" id="botaoEnviar" onclick="criarTarefa()">Criar</button>
+    </div>
+
+    <hr>
+
+    <div id="diasContainer" class="containerPrincipal">
+
+      <div id="domingo" class="itensSemana"><h4>Domingo</h4>
+        <ul id="tarefa-domingo"></ul>
+      </div>
+
+      <div id="segunda" class="itensSemana"><h4>Segunda</h4>
+        <ul id="tarefa-segunda"></ul>
+      </div>
+      
+      <div id="terca" class="itensSemana"><h4>Terça</h4>
+        <ul id="tarefa-terca"></ul>
+      </div>
+
+      <div id="quarta" class="itensSemana"><h4>Quarta</h4>
+        <ul id="tarefa-quarta"></ul>
+      </div>
+
+      <div id="quinta" class="itensSemana"><h4>Quinta</h4>
+        <ul id="tarefa-quinta"></ul>
+      </div>
+
+      <div id="sexta" class="itensSemana"><h4>Sexta</h4>
+        <ul id="tarefa-sexta"></ul>
+      </div>
+
+      <div id="sabado" class="itensSemana"><h4>Sábado</h4>
+        <ul id="tarefa-sabado"></ul>
+      </div>
+
+    </div>
+   
+  </body>
+</html>

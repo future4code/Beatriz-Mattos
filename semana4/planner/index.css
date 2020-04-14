@@ -1,0 +1,36 @@
+body {
+    background: rgb(83, 105, 43);
+    padding: 0;
+    margin: 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+h1{
+    text-align: center;
+}
+
+.seletorContainer {
+    align-items: center;
+    padding-left: 30em;
+    
+}
+
+#diasContainer {
+    display: grid;
+    box-sizing: border-box;
+    padding: 10px;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+}
+
+.containerPrincipal {
+    background-color: white;
+    height: 70vh;
+}
+
+.itensSemana {
+    border: 1px solid black;
+    padding: 5px;
+    
+}
