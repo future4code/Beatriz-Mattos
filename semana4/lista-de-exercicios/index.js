@@ -41,6 +41,8 @@ O laço for faz a "varredura" no array de números, com o apelido 'numero' para 
 é criada outra condição if comparando se o numero2 é maior que o numero e se essa condição for verdadeira, numero2 recebe o valor de numero.
 Fora do escopo, é impresso no console o resultado do array numero1 e numero2.
 
+acrescentando pela revisão: As saídas seriam -10 e 1590.
+
 */
 
 /* Exercícios de lógica de programação - Exercício 1
