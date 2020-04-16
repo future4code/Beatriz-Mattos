@@ -13,8 +13,8 @@ class Post extends React.Component {
     curtido: false,
     numeroCurtidas: 0,
     comentando: false,
-    numeroComentarios: 0
-  }
+    numeroComentarios: 0,
+    }
 
   onClickCurtida = () => {
     if(!this.state.curtido) {
@@ -25,11 +25,10 @@ class Post extends React.Component {
     } else {
       this.setState ({
         curtido: !true,
-        numeroCurtidas: this.state.numeroCurtidas = ""
+        numeroCurtidas: this.state.numeroCurtidas = 0
       })
     }
 
-    
     console.log('Curtiu!')
   }
 
@@ -46,7 +45,7 @@ class Post extends React.Component {
     })
   }
 
-  render() {
+ render() {
     let iconeCurtida
     console.log(this.state)
 
@@ -61,6 +60,7 @@ class Post extends React.Component {
     if(this.state.comentando) {
       componenteComentario = <SecaoComentario aoEnviar={this.aoEnviarComentario}/>
     }
+    
 
     return <div className={'post-container'}>
       <div className={'post-header'}>
