@@ -1,38 +1,28 @@
 import React from 'react';
+import PerguntaAberta from "./src/components/PerguntaAberta";
+import PerguntaOpcoes from "./src/components/PerguntaOpcoes";
 
-
-export class Etapa1 extends React.Component {
+class Etapa1 extends React.Component {
     render() {
         return (
-            <div className={'App'}>
+            <div>
                 <h3>ETAPA 1 - DADOS GERAIS</h3>
-            </div>
 
-            <div> 
-                <label>1. Qual é o seu nome?</label>
-                <input type="text" value={this.state.value} />
-            </div>
+                <PerguntaAberta pergunta={'1. Qual é o seu nome?'} />
+                <PerguntaAberta pergunta={'2. Qual sua idade?'} />
+                <PerguntaAberta pergunta={'3. Qual seu e-mail?'} />
 
-            <div>
-                <label>2. Qual sua idade?</label>
-                <input type="text" value={this.state.value} />
+                <PerguntaOpcoes pergunta={'Qual a sua escolaridade?'}
+                    opcoes={[
+                        'Ensino médio incompleto',
+                        'Ensino médio completo',
+                        'Ensino superior incompleto',
+                        'Ensino superior completo'
+                    ]}
+                />
             </div>
-
-            <div>
-                <label>3. Qual seu e-mail?</label>
-                <input type="text" value={this.state.value} />
-            </div>
-
-            <div>
-                <label>4. Qual a sua escolaridade?</label>
-                <select>
-                    <option value="vazio">Selecione uma opção</option>
-                    <option value="Ensino médio incompleto">Ensino médio incompleto</option>
-                    <option value="Ensino médio completo">Ensino médio completo</option>
-                    <option value="Ensino superior incompleto">Ensino superior incompleto</option>
-                    <option value="Ensino superior completo">Ensino superior completo</option>
-                </select>
-            </div>
-         );
+        )
     }
 }
+
+export default Etapa1;
