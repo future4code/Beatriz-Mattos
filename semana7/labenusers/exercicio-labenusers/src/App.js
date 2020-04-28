@@ -1,26 +1,26 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import axios from 'axios';
+import styled from 'styled-components';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component() {
+  state = {
+    nome: '',
+    email: '',
+  }
+
+  render() {
+    return (
+      <div>
+        <button>Ir para página de registro</button>
+
+        <label>Nome: </label>
+        <input></input>
+
+        <label>E-mail: </label>
+        <input></input>
+      </div>
+    );
+  }
 }
 
 export default App;
