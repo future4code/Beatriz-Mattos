@@ -1,69 +1,45 @@
 import React from 'react';
-import axios from 'axios';
 import styled from 'styled-components';
-import CadastroUsuario from './components/CadastroUsuario'
+import CadastroUsuario from './components/CadastroUsuario';
+import ListaUsuarios from './components/ListaUsuarios';
 
 const ContainerPrincipal = styled.main`
+  margin: 0;
+`
 
+const BotaoAlteraPagina = styled.button`
+  background-color: darksalmon;
+  font-weight: bolder;
+  border-radius: 30px;
+  margin-top: 30px;
+  margin-left: 20px;
+  padding: 5px 10px;
 `
 
 class App extends React.Component {
   state = {
-    nome: '',
-    email: '',
+    paginaAtual: 'CADASTRO'
   }
 
-  //funções
-  onChangeNomeUsuario = e => {
-    this.setState({ nome: e.target.value })
-    console.log(this.state.nome)
-  }
-
-  onChangeEmailUsuario = e => {
-    this.setState({ email: e.target.value })
-    console.log(this.state.email)
-  }
-
-
-  onClickSalvar = () => {
-    this.registraUsuario();
-  }
-
-  registraUsuario = () => {
-    const body = {
-      nome: this.state.nome,
-      email: this.state.email,
-    }
-
-    //requisição POST createUser
-    axios.post('https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users',
-      body,
-      {
-        headers: {
-          Authorization: 'Beatriz-Mattos-Julian',
-        }
-      }
-    )
-      .then(resposta => {
-        alert('Cadastro realizado com sucesso!')
-      })
-      .catch(error => {
-        alert('Errrrrrrrou!')
-        console.log(error.response)
-      })
-  }
+  onClickMudarPagina = () => {
+    const proximaPagina = this.state.paginaAtual === 'CADASTRO' ? 'LISTA' : 'CADASTRO';
+    this.setState({ paginaAtual: proximaPagina });
+  };
 
   render() {
     return (
       <ContainerPrincipal>
 
-        <CadastroUsuario
-          onChangeNomeUsuario={this.onChangeNomeUsuario}
-          onChangeEmailUsuario={this.onChangeNomeUsuario}
-          onClickSalvar={this.onClickSalvar}
-        />
+          <BotaoAlteraPagina onClick={this.onClickMudarPagina}>
+
+            {this.state.paginaAtual === 'CADASTRO' ? 'Ir para a página de lista' : 'Voltar para a página de cadastro'}
+
+          </BotaoAlteraPagina>
+
+            {this.state.paginaAtual === 'CADASTRO' ? (<CadastroUsuario />) : (<ListaUsuarios />)}
 
       </ContainerPrincipal>
+
     );
   }
 }
