@@ -1,7 +1,7 @@
 import react from 'react';
 import Axios from 'axios';
 
-export default class ListaUsuarios extends React.Component {
+class ListaUsuarios extends React.Component {
     state = {
 
     }
@@ -10,3 +10,5 @@ export default class ListaUsuarios extends React.Component {
         Axios.get()
     }
 }
+
+export default ListaUsuarios;
