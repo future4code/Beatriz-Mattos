@@ -38,20 +38,25 @@ class ListaUsuarios extends React.Component {
     };
 
     onClickDeletar = userId => {
-        axios.delete(`https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/${userId}`,
-            {
-                headers: {
-                    Authorization: "Beatriz-Mattos-Julian"
+        if(window.confirm('Tem certeza que deseja deletar esse usuário?')) {
+            axios.delete(`https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/${userId}`,
+                {
+                    headers: {
+                        Authorization: "Beatriz-Mattos-Julian"
+                    }
                 }
+            )
+                .then(resposta => {
+                    window.alert('Usuario deletado com sucesso');
+                    this.getUsersList();
+                })
+                
+            } else {
+                .catch(error => {
+                    window.alert('Erro na exclusão do usuário.');
+                });
+
             }
-        )
-            .then(resposta => {
-                window.alert('Usuario deletado com sucesso');
-                this.getUsersList();
-            })
-            .catch(error => {
-                window.alert('Deu erro...');
-            });
     };
 
     render() {
