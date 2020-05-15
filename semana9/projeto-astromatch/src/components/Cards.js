@@ -1,0 +1,1 @@
+{/*componente de cards e suas funcionalidades*/}
