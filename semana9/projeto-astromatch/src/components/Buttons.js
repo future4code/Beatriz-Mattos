@@ -9,12 +9,20 @@ const BoxButton = styled.div`
     justify-content: space-around;
 `
 
+// const HeartButton = styled(FavoriteIcon)`
+//     background-color: green;
+// `
+
+// const XButton = styled(CloseIcon)`
+//     background-color: red;
+// `
+
 const HeartButton = styled.button`
-    color: green;
+    background-color: green;
 `
 
 const XButton = styled.button`
-    color: red;
+    background-color: red;
 `
 
 const Buttons = (props) => {
@@ -27,6 +35,7 @@ const Buttons = (props) => {
             choice: choiceProfile,
         }
 
+        {/*aqui 'puxo' o endpoint POST Choose Person*/}
         Axios
             .post('https://us-central1-missao-newton.cloudfunctions.net/astroMatch/beatriz-mattos-julian/choose-person', body)
             .then(response => {
@@ -50,23 +59,20 @@ const Buttons = (props) => {
     return (
         <BoxButton>
 
-            <HeartButton
-                onClick={onClickAccept}>
-
-                {/* <FavoriteIcon
-                    fontSize='large' */}
-                />
-                ♥
-            </HeartButton>
-
             <XButton
                 onClick={onClickDecline}>
-                
                 {/* <CloseIcon
-                    fontSize='large' */}
-                />
+                    fontSize='large' /> */}
                     X
             </XButton>
+
+            <HeartButton
+                onClick={onClickAccept}>
+                    {/* <FavoriteIcon
+                    fontSize='large' /> */}
+                    ♥
+            </HeartButton>
+
 
         </BoxButton>
     );

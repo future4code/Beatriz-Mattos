@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Axios from 'axios';
 import Buttons from './components/Buttons';
+import PageMatches from './components/PageMatches';
+import Cards from './components/Cards';
 
 {/* styleds dos containers principais*/}
 const ContainerApp = styled.div`
@@ -23,11 +25,8 @@ const ContentApp = styled.div`
   background-color: white;
   display: grid;
   grid-template-rows: 60px 1fr;
-  //box-shadow: 0 0.07vw 50px violet, inset 0px 0vw 8px 0px blue;
   grid-template-columns: 1fr;
-  `
-{/*anotação: em grid-template-columns, eu poderia usar: 1fr (fração inteira), auto, 500px(que é o width total do content;
-e se quisesse um espaço à direita, poderia usar 400px que é -100px do tamanho total do width) */}
+`
 
 {/*styleds do header*/}
 const Header = styled.header`
@@ -68,7 +67,7 @@ const App = (props) => {
     setNextProfile(!nextProfile);
   }
 
-  {/*aqui 'puxo' o endpoint GET Profile To Choose e atualizo as imagens no content*/}
+  {/*aqui 'puxo' o endpoint GET Profile To Choose e retorno um perfil ainda não visto*/}
   useEffect(() => {
     Axios
       .get('https://us-central1-missao-newton.cloudfunctions.net/astroMatch/beatriz-mattos-julian/person')
@@ -111,31 +110,24 @@ const App = (props) => {
 
         </Header>
 
-        {/* {showAllMatches} ? (
+      
+        <Cards
+        profile={showProfile}/>
+
+        {/* <Buttons
+        profile={showProfile}
+        next={nextProfile}
+        /> */}
+
+         {/* {showAllMatches} ? (
+
 
           <PageMatches
           matches={listAllMatches}
-          />
-
-          ) : (
-
-            <Main>
-
-              <Cards
-              profile={showProfile}
-              />
-
-              <Buttons
-              profile={showProfile}
-              next={nextProfile}
-              />
-
-            </Main>
-          ) */}
+         /> */}
 
       </ContentApp>
 
-      {/* <p>Entediado? Resete tudo aqui:</p> */}
       <ButtonReset
         onClick={''}>
           Reset all my swipes and matches
