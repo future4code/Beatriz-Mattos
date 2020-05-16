@@ -1,28 +1,25 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-// import FavoriteIcon from '@material-ui/icons/Favorite';
-// import CloseIcon from '@material-ui/icons/Close';
+import FavoriteIcon from '@material-ui/icons/Favorite';
+import CloseIcon from '@material-ui/icons/Close';
 import Axios from 'axios';
 
 const BoxButton = styled.div`
     display: flex;
     justify-content: space-around;
+    
 `
 
-// const HeartButton = styled(FavoriteIcon)`
-//     background-color: green;
-// `
-
-// const XButton = styled(CloseIcon)`
-//     background-color: red;
-// `
-
-const HeartButton = styled.button`
+const HeartButton = styled(FavoriteIcon)`
     background-color: green;
+    border-radius: 100%;
+    padding: 5px;
 `
 
-const XButton = styled.button`
+const XButton = styled(CloseIcon)`
     background-color: red;
+    border-radius: 100%;
+    padding: 5px;
 `
 
 const Buttons = (props) => {
@@ -39,7 +36,7 @@ const Buttons = (props) => {
         Axios
             .post('https://us-central1-missao-newton.cloudfunctions.net/astroMatch/beatriz-mattos-julian/choose-person', body)
             .then(response => {
-                { props.next() }
+                {props.nextPerson()}
             })
             .catch(err => {
                 console.log(err);
@@ -49,6 +46,7 @@ const Buttons = (props) => {
 
     const onClickAccept = () => {
         chooseProfile(props.profile.id, loveChoice);
+        console.log(onClickAccept)
     }
 
     const onClickDecline = () => {
@@ -61,16 +59,14 @@ const Buttons = (props) => {
 
             <XButton
                 onClick={onClickDecline}>
-                {/* <CloseIcon
-                    fontSize='large' /> */}
-                    X
+                <CloseIcon
+                    fontSize='large' />
             </XButton>
 
             <HeartButton
                 onClick={onClickAccept}>
-                    {/* <FavoriteIcon
-                    fontSize='large' /> */}
-                    ♥
+                    <FavoriteIcon
+                    fontSize='large' />
             </HeartButton>
 
 

@@ -114,10 +114,12 @@ const App = (props) => {
         <Cards
         profile={showProfile}/>
 
-        {/* <Buttons
+        <Buttons
         profile={showProfile}
-        next={nextProfile}
-        /> */}
+        nextPerson={nextProfile}
+        onClick={props.onClickAccept}
+        onClick={props.onClickDecline}
+        />
 
          {/* {showAllMatches} ? (
 
