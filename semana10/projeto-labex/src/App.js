@@ -1,25 +1,52 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
-function App() {
+import HomePage from './components/HomePage';
+import FormPage from './components/FormPage';
+import LoginPage from './components/LoginPage';
+import Error404Page from './components/Error404Page';
+import AdminPage from './components/AdminPage';
+import CreateTripPage from './components/CreateTripPage';
+import ListTripsPage from './components/ListTripsPage';
+import TripDetailsPage from './components/TripDetailsPage';
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Switch>
+          <Route exact path="/">
+            <HomePage />
+          </Route>
+
+          <Route exact path='/application-form'>
+            <FormPage />
+          </Route>
+
+          <Route exact path='/login'>
+            <LoginPage />
+          </Route>
+
+          <Route exact path='/admin-page'>
+            <AdminPage />
+          </Route>
+
+          <Route exact path='/trips/create'>
+            <CreateTripPage />
+          </Route>
+
+          <Route exact path='/trips/list'>
+            <ListTripsPage />
+          </Route>
+
+          <Route exact path='/trips/details'>
+            <TripDetailsPage />
+          </Route>
+
+          <Route path="/">
+            <Error404Page />
+          </Route>
+      </Switch>   
+    </BrowserRouter>
   );
 }
 
