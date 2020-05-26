@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 
 const CreateTripContainer = styled.div`
@@ -67,6 +68,16 @@ const CreateTripTitle = styled.div`
 `
 
 const CreateTripPage = () => {
+  const history = useHistory();
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+
+    if (token === null) {
+      history.push('/');
+    }
+  }, [history]);
+
   return (
     <CreateTripContainer>
 

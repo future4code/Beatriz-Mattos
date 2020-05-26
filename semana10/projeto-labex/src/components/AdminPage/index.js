@@ -44,7 +44,7 @@ const Button = styled.button`
     }
 `
 
-const EndSessionButton = styled.button`
+const LogOutButton = styled.button`
     cursor: pointer;
     margin: 20px;
     padding: 10px;
@@ -66,7 +66,8 @@ const EndSessionButton = styled.button`
 const AdminPage = () => {
     const history = useHistory();
 
-    const endSession = () => {
+    const handleLogOut = () => {
+        localStorage.clear();
         history.push('/')
     }
 
@@ -95,7 +96,7 @@ const AdminPage = () => {
                     <Button onClick={tripsList}>Listar todas as viagens</Button>
                     <Button onClick={tripsDetails}>Verificar inscrições</Button>
 
-                    <EndSessionButton onClick={endSession}>Sair</EndSessionButton>
+                    <LogOutButton onClick={handleLogOut}>Sair</LogOutButton>
 
                 </ContainerButtons>
 
