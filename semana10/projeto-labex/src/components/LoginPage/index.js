@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import styled from 'styled-components';
+import axios from "axios";
 
 import Header from '../Header';
 import Footer from '../Footer';
@@ -39,7 +40,6 @@ const Input = styled.input`
   padding-bottom: 10px;
 `
 
-
 const ButtonGetLogged = styled.button`
   cursor: pointer;
   margin: 20px;
@@ -49,13 +49,31 @@ const ButtonGetLogged = styled.button`
   background-color: darkorange;
 
 `
+const baseUrl = 'https://us-central1-labenu-apis.cloudfunctions.net/labeX/beatriz-mattos-julian';
 
+// pegou props de quem?
 const LoginPage = () => {
   const history = useHistory();
 
-  const goToAdminPage = () => {
-    history.push('/admin-page')
-  }
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleLogin = async () => {
+    const body = {
+      email: email,
+      password: password
+    };
+
+    try {
+      const response = await axios.post(`${baseUrl}/login`, body);
+
+      localStorage.setItem('token', response.data.token);
+      history.push('/admin-page');
+    }
+    catch (e) {
+      alert('Login falhou :(');
+    }
+  };
 
   return (
     <LoginPageContainer>
@@ -69,12 +87,22 @@ const LoginPage = () => {
           <h3>Área do administrador</h3>
 
           <Label>E-mail:</Label>
-          <Input type='email' />
+          <Input
+            type='email'
+            value={email}
+            placeholder='Insira o e-mail'
+            onChange={e => setEmail(e.target.value)}
+          />
 
           <Label>Senha:</Label>
-          <Input type='password' />
+          <Input
+            type='password'
+            value={password}
+            placeholder='Insira a senha'
+            onChange={e => setPassword(e.target.value)}
+          />
           
-          <ButtonGetLogged onClick={goToAdminPage}>Vamos lá!</ButtonGetLogged>
+          <ButtonGetLogged onClick={handleLogin}>Vamos lá!</ButtonGetLogged>
 
         </LoginBox>
 

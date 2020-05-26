@@ -49,20 +49,20 @@ const SubscriptionButton = styled.button`
 `
 
 function FormPage() {
-  const [name, setName] = useState('');
-  const [age, setAge] = useState('');
-  const [question, setQuestion] = useState('');
-  const [profession, setProfession] = useState('');
-  const [country, setCountry] = useState('');
-  const [trip, setTrip] = useState('');
+  // const [name, setName] = useState('');
+  // const [age, setAge] = useState('');
+  // const [question, setQuestion] = useState('');
+  // const [profession, setProfession] = useState('');
+  // const [country, setCountry] = useState('');
+  // const [trip, setTrip] = useState('');
 
-  const Subscription = () => {
-    axios
-    .post('https://us-central1-labenu-apis.cloudfunctions.net/labeX/:aluno/trips/:id/apply')
-    .then(response => {
+  // const Subscription = () => {
+  //   axios
+  //   .post('https://us-central1-labenu-apis.cloudfunctions.net/labeX/:aluno/trips/:id/apply')
+  //   .then(response => {
 
-    })
-  }
+  //   })
+  // }
 
   return (
     <FormPageContainer>
