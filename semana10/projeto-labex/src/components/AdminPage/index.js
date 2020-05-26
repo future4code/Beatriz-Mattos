@@ -3,11 +3,65 @@ import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 
 const AdminPageContainer = styled.div`
+    margin: 0;
+    padding: 15px;
+    background-image: linear-gradient(darkmagenta, cadetblue, #dedede, white);
 `
 
 const AdminPageContent = styled.div`
+    margin: 0;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `
 
+const WelcomeTitle = styled.h3`
+    font-size: 30px;
+`
+
+const ContainerButtons = styled.div`
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    height: auto;
+    padding: 5px;
+`
+
+const Button = styled.button`
+    cursor: pointer;
+    margin: 15px;
+    padding: 20px;
+    border-radius: 15px;
+    font-size: 20px;
+    background-color: cadetblue;
+    border: 1px outset darkmagenta;
+
+    :hover {
+        font-weight: bolder;
+        color: darkmagenta;
+    }
+`
+
+const EndSessionButton = styled.button`
+    cursor: pointer;
+    margin: 20px;
+    padding: 10px;
+    background-color: grey;
+    font-size: 15px;
+    border-radius: 15px;
+    border: 1px solid black;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+
+    :hover {
+        font-weight: bolder;
+        color: darkred;
+    }
+`
 
 const AdminPage = () => {
     const history = useHistory();
@@ -31,17 +85,21 @@ const AdminPage = () => {
     return (
         <AdminPageContainer>
 
-        <h3>Seja bem vindo, admin!</h3>
+            <WelcomeTitle>Seja bem vindo, admin!</WelcomeTitle>
 
-        <AdminPageContent>
+            <AdminPageContent>
 
-            <button onClick={createTrip}>Criar viagem</button>
-            <button onClick={tripsList}>Listar todas as viagens</button>
-            <button onClick={tripsDetails}>Verificar inscrições</button>
+                <ContainerButtons>
 
-            <button onClick={endSession}>Sair</button>
+                    <Button onClick={createTrip}>Criar viagem</Button>
+                    <Button onClick={tripsList}>Listar todas as viagens</Button>
+                    <Button onClick={tripsDetails}>Verificar inscrições</Button>
 
-        </AdminPageContent>
+                    <EndSessionButton onClick={endSession}>Sair</EndSessionButton>
+
+                </ContainerButtons>
+
+            </AdminPageContent>
 
         </AdminPageContainer>
     );

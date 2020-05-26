@@ -1,11 +1,23 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const FooterContainer = styled.div`
+    background-color: gray;
+    display: flex;
+    justify-content: center;
+`
+
+const FooterContent = styled.div`
+`
 
 const Footer = () => {
     
     return (
-        <div>
-            Footer
-        </div>
+        <FooterContainer>
+            <FooterContent>
+                <p>Footer!</p>
+            </FooterContent>
+        </FooterContainer>
     );
 };
 
