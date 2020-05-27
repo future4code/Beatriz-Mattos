@@ -96,7 +96,8 @@ const AdminPage = () => {
                     <Button onClick={tripsList}>Listar todas as viagens</Button>
                     <Button onClick={tripsDetails}>Verificar inscrições</Button>
 
-                    <LogOutButton onClick={handleLogOut}>Sair</LogOutButton>
+                    <LogOutButton onClick={handleLogOut}>Sair
+                    </LogOutButton>
 
                 </ContainerButtons>
 

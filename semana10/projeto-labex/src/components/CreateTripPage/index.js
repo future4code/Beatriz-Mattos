@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -67,6 +67,7 @@ const CreateTripTitle = styled.div`
   padding-top: 25px;
 `
 
+//integração da rota
 const CreateTripPage = () => {
   const history = useHistory();
 
@@ -77,6 +78,7 @@ const CreateTripPage = () => {
       history.push('/');
     }
   }, [history]);
+
 
   return (
     <CreateTripContainer>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from 'styled-components';
 import axios from 'axios';
+import { useHistory } from 'react-router-dom';
 
 import Header from '../Header';
 import Footer from '../Footer';
@@ -39,7 +40,7 @@ const Input = styled.input`
   padding-bottom: 10px;
 `
 
-const SubscriptionButton = styled.button`
+const Button = styled.button`
   cursor: pointer;
   margin: 20px;
   padding: 5px;
@@ -48,21 +49,46 @@ const SubscriptionButton = styled.button`
   background-color: darkorange;
 `
 
+
+//função de estado que armazena os nomes e valores do formulário
+const useForm = initialValues => {
+  const [form, setForm] = useState(initialValues);
+
+  //handler unificado utilizando o 'name' para atualizar os dados de forma dinâmica
+  const onChange = (name, value) => {
+    const newForm = { ...form, [name]: value };
+    setForm(newForm);
+  };
+
+    return { form, onChange };
+
+};
+
 function FormPage() {
-  // const [name, setName] = useState('');
-  // const [age, setAge] = useState('');
-  // const [question, setQuestion] = useState('');
-  // const [profession, setProfession] = useState('');
-  // const [country, setCountry] = useState('');
-  // const [trip, setTrip] = useState('');
+  const { form, onChange } = useForm({
+    name: '',
+    age: '',
+    applicationText: '',
+    profession: '',
+    country: '',
+    trip: ''
+  });
 
-  // const Subscription = () => {
-  //   axios
-  //   .post('https://us-central1-labenu-apis.cloudfunctions.net/labeX/:aluno/trips/:id/apply')
-  //   .then(response => {
+  const handleInputChange = e => {
+    const { value, name } = e.target;
 
-  //   })
-  // }
+    onChange(name, value);
+  }
+
+  const handleSubmit = e => {
+    e.preventDefault();
+  }
+
+  const SubmitMessage = e => {
+    if (form.age >= 18 && form.applicationText === true) {
+      alert('Sua inscrição foi enviada para aprovação!');
+    };
+  }
 
   return (
     <FormPageContainer>
@@ -75,25 +101,91 @@ function FormPage() {
 
           <h3>Formulário de inscrição</h3>
 
-          <Label for='name'>Nome:</Label>
-          <Input type='text' placeholder='Digite o seu nome'/>
+          <form onSubmit={handleSubmit}>
 
-          <Label for='age'>Idade:</Label>
-          <Input type='number' placeholder='Digite a sua idade'/>
+            <Label>Nome:</Label>
+            <Input
+              value={form.name}
+              onChange={handleInputChange}
+              name='name'
+              type='text'
+              placeholder='Digite o seu nome'
+              pattern='[A-Z a-z]{3,}'
+              title='O nome deve conter 3 letras no mínimo.'
+              required
+            />
 
-          <Label for='question'>Por que você é um bom candidato?</Label>
-          <Input type='textarea' placeholder='Pense bem...'/>
+            <br />
 
-          <Label for='occupation'>Profissão:</Label>
-          <Input type='text' placeholder='Digite a sua profissão'/>
+            <Label>Idade:</Label>
+            <Input
+              value={form.age}
+              onChange={handleInputChange}
+              name='age'
+              type='number'
+              min='18'
+              title='Apenas maiores de idade podem ir para o espaço.'
+              placeholder='Digite a sua idade'
+              required
+            />
 
-          <Label for='country'>País:</Label>
-          <Input type='text' placeholder='Digite o seu país'/>
+            <br />
 
-          <Label for='trip'>Viagem:</Label>
-          <Input type='' placeholder='Digite o destino dos sonhos'/> //depois trocar p/ input que gera todos os destinos ja estabelecidos
+            <Label>Por que você é um bom candidato?</Label>
+            <Input
+              value={form.applicationText}
+              onChange={handleInputChange}
+              name='applicationText'
+              type='text'
+              minlenght='30'
+              //pattern='^[a-z]{30,}$'
+              title='No mínimo 30 caracteres e impecável.'
+              placeholder='Seja criativo!'
+              required
+            />
 
-          <SubscriptionButton>ENVIAR</SubscriptionButton>
+            <br />
+
+            <Label>Profissão:</Label>
+            <Input
+              value={form.profession}
+              onChange={handleInputChange}
+              name='profession'
+              type='text'
+              placeholder='Digite a sua profissão'
+              required
+            />
+
+            <br />
+            
+            <Label>País:</Label>
+            <Input
+              value={form.country}
+              onChange={handleInputChange}
+              name='country'
+              type='text'
+              placeholder='Digite o seu país'
+              required
+            />
+
+            <br />
+
+            <Label>Viagem:</Label>
+            <Input
+              value={form.trip}
+              onChange={handleInputChange}
+              name='trip'
+              type='text'
+              placeholder='Digite o destino dos sonhos'
+              required
+            />
+
+            <br />
+
+            <Button onClick={SubmitMessage}>ENVIAR</Button>
+
+          </form>
+
 
         </SubscriptionForm>
 
