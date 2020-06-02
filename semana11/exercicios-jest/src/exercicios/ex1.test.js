@@ -36,4 +36,10 @@ describe("Checa bissexto", () => {
 
     expect(resultado).toEqual(true);
   });
+
+  test("retorna false para 2100", () => {
+    const resultado = checaBissexto(2100);
+
+    expect(resultado).toEqual(false);
+  });
 });
