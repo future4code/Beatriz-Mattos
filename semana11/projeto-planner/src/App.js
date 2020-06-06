@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import InputStyle from '@material-ui/core/';
+import axios from 'axios';
 
 const PlannerContainer = styled.div`
   background: url('https://apod.nasa.gov/apod/image/2006/LagoonCenter_HubbleGravinese_960.jpg');
@@ -65,7 +66,7 @@ const Button = styled.button`
       background-color: cadetblue;
     }
   `
-  
+
 const Select = styled.select`
     padding: 4px;
     border-radius: 15px;
@@ -103,29 +104,99 @@ const Day = styled.h3`
 const List = styled.li`
   color: pink;
 `
-  
+
 function App() {
+  const [task, setTask] = useState([]);
+  const [inputValue, setInputValue] = useState('');
+  const [select, setSelect] = useState('');
+  const [day, setDay] = useState([]);
+
+  const getTasks = () => {
+    axios.get('https://us-central1-labenu-apis.cloudfunctions.net/generic/:planner-julian-beatriz')
+      .then((resp) => {
+        setTask(resp.data)
+      })
+      .catch((err) => {
+        window.alert('Tivemos um erro ao pegar sua tarefa. Tente novamente!')
+      })
+  }
+
+  useEffect(() => {
+    getTasks()
+  }, [])
+
+  const onChangeInput = (e) => {
+    setInputValue(e.target.value)
+  }
+
+  const onChangeSelect = (e) => {
+    setSelect(e.target.value)
+  }
+
+  const createTask = () => {
+    const body = {
+      text: inputValue,
+      day: day
+    }
+    
+    axios.post('https://us-central1-labenu-apis.cloudfunctions.net/generic/:planner-julian-beatriz', body)
+    .then((resp) => {
+      window.alert('Tarefa adicionada com sucesso!')
+      getTasks()
+      setInputValue('')
+    })
+  }
+  
+  const onSubmit = (e) => {
+    e.preventDefault();
+    createTask()
+  }
+
+  const selectTask = (id) => {
+    const newList = task.map((task) => {
+      if (task.id === id) {
+        return {
+          ...task,
+          complete: !task.complete
+        }
+      }
+      return task
+    })
+    setTask(newList)
+  }
+
+  const domingo = task.filter(task => {
+    if (task.day === 'domingo') {
+      return task
+    }
+  }).map(task => {
+    return (
+      <li>{task.text}</li>
+      ) 
+  })
+
+
   return (
     <PlannerContainer>
 
       <PlannerContent>
 
-          <Title>Planner Semanal</Title>
+        <Title>Planner Semanal</Title>
 
         <NavContainer>
 
-          <form onSubmit={''}>
+          <form onSubmit={onSubmit}>
 
             <Input
               type={'text'}
               name={'text'}
-              value={''}
-              onChange={''}
+              value={inputValue}
+              onChange={onChangeInput}
               placeholder={'Descreva sua tarefa'}
               required
             />
 
-            <Select value={''} onChange={''}>
+            <Select value={'select'} onChange={onChangeSelect}>
 
               <option value={''}>Escolha o dia</option>
               <option value={'domingo'}>Domingo</option>
@@ -148,31 +219,37 @@ function App() {
 
           <TaskDay>
             <Day>Domingo</Day>
-              <List>oiii</List>
+            <List>{domingo}</List>
           </TaskDay>
 
           <TaskDay>
             <Day>Segunda</Day>
+            <List>1</List>
           </TaskDay>
 
           <TaskDay>
             <Day>Terça</Day>
+            <List>2</List>
           </TaskDay>
 
           <TaskDay>
             <Day>Quarta</Day>
+            <List>3</List>
           </TaskDay>
 
           <TaskDay>
             <Day>Quinta</Day>
+            <List>4</List>
           </TaskDay>
 
           <TaskDay>
             <Day>Sexta</Day>
+            <List>5</List>
           </TaskDay>
 
           <TaskDay>
             <Day>Sábado</Day>
+            <List>6</List>
           </TaskDay>
 
         </TaskContainer>
