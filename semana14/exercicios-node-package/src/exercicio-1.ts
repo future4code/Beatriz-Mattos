@@ -12,12 +12,10 @@ function retornaDados(nome: string, idade: number): string {
 const nome: string = process.argv[2];
 const idade: number = Number(process.argv[3]);
 
-//const mensagem: string = `Olá, ${nome}! Você tem ${idade} anos.`
-
+const mensagem: string = `Olá, ${nome}! Você tem ${idade} anos.`
 //console.log(mensagem)
 
 //c) Altere o programa acima para que mostre também a sua idade daqui a sete anos.
 
 const mensagem2: string = `Olá, ${nome}! Você tem ${idade} anos. Em sete anos, você terá ${idade + 7}.`
-
-console.log(mensagem2)
+//console.log(mensagem2)
