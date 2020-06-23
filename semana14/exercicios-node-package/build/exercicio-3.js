@@ -20,13 +20,13 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const fs = __importStar(require("fs"));
-const arquivoTarefas = 'tarefas.txt';
-const dadoRecebido = process.argv[2];
+const arquivo = 'tarefas.txt';
+const dado = process.argv[2];
 try {
-    fs.appendFileSync('tarefas.txt', 'e estudar node.js');
+    fs.appendFileSync(arquivo, dado);
     console.log('Tarefa adicionada com sucesso!');
 }
-catch (_a) {
-    console.log('Não foi possível enviar sua tarefa para o arquivo.');
+catch (err) {
+    console.log('Não foi possível enviar sua tarefa para o arquivo. Erro: ', err);
 }
 //# sourceMappingURL=exercicio-3.js.map
