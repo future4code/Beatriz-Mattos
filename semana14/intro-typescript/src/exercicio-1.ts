@@ -1,7 +1,7 @@
 //                  *Resoluções e respostas do exercício 1*
 
 let minhaString: string = 'Testando string'
-minhaString = 7 //deu erro! (e manti errado propositalmente)
+//minhaString = 7 //deu erro!
 //resposta A: Quando atribuo o número 7 à variável, é apontado o erro 'Type '7' is not assignable to type 'string', pois o tipo foi atribuido como string e não como number.
 
 

@@ -1,5 +1,4 @@
 let minhaString = 'Testando string';
-minhaString = 7;
 let meuNumero = 'testando';
 meuNumero = 12;
 var RainbowColors;
