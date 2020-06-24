@@ -21,6 +21,5 @@ const allEvents = [
         finishAt: moment('24/06/2020 12:40', 'DD/MM/YYYY HH:mm')
     }
 ];
-const now = new Date();
-console.log(now.getDate());
+console.log(allEvents, 'Aula');
 //# sourceMappingURL=exercicio-1.js.map
