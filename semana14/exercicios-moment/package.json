@@ -1,7 +1,7 @@
 {
   "name": "exercicios-moment",
   "version": "1.0.0",
-  "description": "Exercícios da tarde, aula 45",
+  "description": "Exercícios da tarde, aula 46",
   "main": "index.js",
   "scripts": {
     "start": "tsc && node ./build/exercicio-1.js",
