@@ -36,8 +36,8 @@ const allEvents = [
 ];
 const printAllEvents = () => {
     allEvents.forEach(event => {
-        const start = event.startAt.format('DD/MM/YYYY HH:mm');
-        const end = event.finishAt.format('DD/MM/YYYY HH:mm');
+        const start = event.startAt.format('dddd, DD [de] MMM [de] YYYY, [às] HH:mm');
+        const end = event.finishAt.format('DD [de] MMM [de] YYYY, [às] HH:mm');
         const duration = event.finishAt.diff(event.startAt, 'minutes');
         const daysUntilEvent = event.startAt.diff(moment(), 'days');
         console.log(`

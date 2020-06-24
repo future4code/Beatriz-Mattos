@@ -23,28 +23,28 @@ const allEvents: event[] = [
         finishAt: moment('24/06/2020 09:00', 'DD/MM/YYYY HH:mm')
     },
     {
-		name: 'Aula',
-		description: 'Aula sobre os conceitos introdutórios de back-end - módulo 4',
-		startAt: moment('24/06/2020 09:02', 'DD/MM/YYYY HH:mm'),
-	 	finishAt: moment('24/06/2020 11:40', 'DD/MM/YYYY HH:mm')
+        name: 'Aula',
+        description: 'Aula sobre os conceitos introdutórios de back-end - módulo 4',
+        startAt: moment('24/06/2020 09:02', 'DD/MM/YYYY HH:mm'),
+        finishAt: moment('24/06/2020 11:40', 'DD/MM/YYYY HH:mm')
     },
     {
-		name: 'Cochilo pós-aula',
-		description: 'Muito importante para revitalizar o corpo',
-		startAt: moment('24/06/2020 11:40', 'DD/MM/YYYY HH:mm'),
-	 	finishAt: moment('24/06/2020 12:40', 'DD/MM/YYYY HH:mm')
+        name: 'Cochilo pós-aula',
+        description: 'Muito importante para revitalizar o corpo',
+        startAt: moment('24/06/2020 11:40', 'DD/MM/YYYY HH:mm'),
+        finishAt: moment('24/06/2020 12:40', 'DD/MM/YYYY HH:mm')
     },
     {
-		name: 'Fazer as compras de casa',
-		description: 'Prepare a máscara e luvas, e por fim a lista de compras!',
-		startAt: moment('28/06/2020 15:40', 'DD/MM/YYYY HH:mm'),
-	 	finishAt: moment('28/06/2020 17:00', 'DD/MM/YYYY HH:mm')
+        name: 'Fazer as compras de casa',
+        description: 'Prepare a máscara e luvas, e por fim a lista de compras!',
+        startAt: moment('28/06/2020 15:40', 'DD/MM/YYYY HH:mm'),
+        finishAt: moment('28/06/2020 17:00', 'DD/MM/YYYY HH:mm')
     },
     {
-		name: 'Projeto da semana',
-		description: 'Dia de muitas alegrias e combustões instantâneas',
-		startAt: moment('26/06/2020 10:00', 'DD/MM/YYYY HH:mm'),
-	 	finishAt: moment('26/06/2020 20:00', 'DD/MM/YYYY HH:mm')
+        name: 'Projeto da semana',
+        description: 'Dia de muitas alegrias e combustões instantâneas',
+        startAt: moment('26/06/2020 10:00', 'DD/MM/YYYY HH:mm'),
+        finishAt: moment('26/06/2020 20:00', 'DD/MM/YYYY HH:mm')
     }
 ]
 
@@ -52,16 +52,18 @@ const allEvents: event[] = [
 
 
 
-//              *Exercício 2*
+//              *Exercício 2 e 3*
 
 //Crie uma função que recebe o array de eventos criado no exercício anterior, e imprime algumas informações sobre cada um no console
-//a) Exiba as informações do evento como uma string
 
 const printAllEvents = (): void => {
     allEvents.forEach(event => {
-        const start: string = event.startAt.format('DD/MM/YYYY HH:mm');
-        const end: string = event.finishAt.format('DD/MM/YYYY HH:mm');
+        const start: string = event.startAt.format('dddd, DD [de] MMM [de] YYYY, [às] HH:mm');
+
+        const end: string = event.finishAt.format('DD [de] MMM [de] YYYY, [às] HH:mm');
+
         const duration: number = event.finishAt.diff(event.startAt, 'minutes');
+
         const daysUntilEvent: number = event.startAt.diff(moment(), 'days');
 
         console.log(`
@@ -76,5 +78,6 @@ const printAllEvents = (): void => {
 }
 
 printAllEvents();
+
 //b) Que alterações precisariam ser feitas com as datas e horários caso a festa acontecesse em Londres, Inglaterra?
 //resposta: Precisariam ser feitas alterações no moment.locale e o utcOffset.
