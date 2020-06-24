@@ -4,7 +4,7 @@
   "description": "Exercícios da tarde, aula 46",
   "main": "index.js",
   "scripts": {
-    "start": "tsc && node ./build/exercicio-1.js",
+    "start": "tsc && node ./build/exercicios.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
