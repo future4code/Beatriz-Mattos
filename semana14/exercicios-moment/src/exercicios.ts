@@ -54,7 +54,7 @@ const allEvents: event[] = [
 
 //              *Exercício 2 e 3*
 
-//Crie uma função que recebe o array de eventos criado no exercício anterior, e imprime algumas informações sobre cada um no console
+//2.a e 3 - Crie uma função que recebe o array de eventos criado no exercício anterior, e imprime algumas informações sobre cada um no console
 
 const printAllEvents = (): void => {
     allEvents.forEach(event => {
@@ -77,7 +77,37 @@ const printAllEvents = (): void => {
     })
 }
 
-printAllEvents();
+//printAllEvents();
 
-//b) Que alterações precisariam ser feitas com as datas e horários caso a festa acontecesse em Londres, Inglaterra?
+//2.b) Que alterações precisariam ser feitas com as datas e horários caso a festa acontecesse em Londres, Inglaterra?
 //resposta: Precisariam ser feitas alterações no moment.locale e o utcOffset.
+
+
+//                  *Exercício 4*
+
+//Deve ser possível cadastrar um novo evento no seu calendário pessoal, passando o dia com o horário de início, o dia com o horário de fim, o nome do evento e um pequeno texto descritivo.
+
+const createEvent = (
+    name: string,
+    description: string,
+    startAt: moment.Moment,
+    finishAt: moment.Moment
+): void => {
+    if (!name || !description || !startAt || !finishAt) {
+        console.log('Input inválido!');
+        return;
+    }
+
+    const diffStartAtAndToday = startAt.diff(moment(), "seconds");
+    const diffFinishAtAndToday = finishAt.diff(moment(), "seconds");
+
+    if (diffStartAtAndToday < 0 && diffFinishAtAndToday < 0) {
+        console.log("Você só pode adicionar datas para eventos futuros. Tente inserir um evento a partir de nossa data atual.");
+        return;
+    }
+}
+
+// const addName: string = process.argv[2];
+// const addDescription: string = process.argv[3];
+// const addStart: moment.Moment = moment(process.argv[4], 'DD MM YYYY HH:mm');
+// const addEnd: moment.Moment = moment(process.argv[5], 'DD MM YYYY HH:mm');

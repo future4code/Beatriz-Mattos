@@ -50,5 +50,20 @@ const printAllEvents = () => {
         `);
     });
 };
-printAllEvents();
+const createEvent = (name, description, startAt, finishAt) => {
+    if (!name || !description || !startAt || !finishAt) {
+        console.log('Input inválido!');
+        return;
+    }
+    const diffStartAtAndToday = startAt.diff(moment(), "seconds");
+    const diffFinishAtAndToday = finishAt.diff(moment(), "seconds");
+    if (diffStartAtAndToday < 0 && diffFinishAtAndToday < 0) {
+        console.log("Você só pode adicionar datas para eventos futuros. Tente inserir um evento a partir de nossa data atual.");
+        return;
+    }
+};
+const addName = process.argv[2];
+const addDescription = process.argv[3];
+const addStart = moment(process.argv[4], 'DD MM YYYY HH:mm');
+const addEnd = moment(process.argv[5], 'DD MM YYYY HH:mm');
 //# sourceMappingURL=exercicios.js.map
