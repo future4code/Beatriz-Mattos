@@ -4,10 +4,12 @@
   "description": "Projeto da semana 14, de introdução ao back-end.",
   "main": "index.js",
   "scripts": {
+    "start": "tsc && node ./build/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
     "node",
+    "axios",
     "package.json",
     "moment",
     "fsconfig"
