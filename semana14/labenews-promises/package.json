@@ -1,0 +1,25 @@
+{
+  "name": "labenews-promises",
+  "version": "1.0.0",
+  "description": "Exercício da tarde, aula 47",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsc && node ./build/exercicio-5.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "axios",
+    "types",
+    "promises",
+    "node",
+    "package.json"
+  ],
+  "author": "Beatriz de Mattos",
+  "license": "ISC",
+  "dependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/node": "^14.0.14",
+    "axios": "^0.19.2",
+    "typescript": "^3.9.5"
+  }
+}
