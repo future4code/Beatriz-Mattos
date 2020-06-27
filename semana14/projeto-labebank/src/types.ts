@@ -8,6 +8,6 @@ export type Account = {
     name: string;
     birthDate: string;
     cpf: string;
-    balance: number;
+    currentBalance: number;
     extract: ExtractItem[];
 }
