@@ -1,4 +1,4 @@
-          //Exercícios\\
+//Exercícios\\
 //Exercício 1:
 //Analise a classe User. Perceba quais propriedades são públicas e quais são privadas. Copie esse código para o seu exercício de hoje; crie uma instância dessa classe (dê o nome, email, etc que você quiser) e imprima, no terminal, o id, o nome e o email desse usuário. 
 //a. Seria possível imprimir a senha (`password`) atrelada a essa instância?
@@ -13,24 +13,24 @@ class User {
   private name: string;
   private password: string;
 
-  constructor(id: string, email: string, name: string, password: string){
-		console.log("Chamando o construtor da classe User")
-		this.id = id
-		this.email = email
-		this.name = name 
-		this.password = password
-	}
+  constructor(id: string, email: string, name: string, password: string) {
+    console.log("Chamando o construtor da classe User")
+    this.id = id
+    this.email = email
+    this.name = name
+    this.password = password
+  }
 
-	public getId(): string {
-		return this.id
-	}
+  public getId(): string {
+    return this.id
+  }
 
-	public getEmail(): string {
-		return this.email
-	}
+  public getEmail(): string {
+    return this.email
+  }
 
-	public getName(): string {
-		return this.name
+  public getName(): string {
+    return this.name
   }
 }
 
@@ -58,7 +58,21 @@ class Customer extends User {
   public getCreditCard(): string {
     return this.creditCard;
   }
+
 }
 
 const createCustomer: Customer = new Customer("02", "biziquinha@email.com", "Elza", "123456", "1111 1111 1111")
-console.log(createCustomer)
+//console.log(createCustomer.getCreditCard())
+
+//Exercício 3
+//Agora, imprima todas as informações possíveis da instância que você criou: o id, o nome, o email, o valor total de compra (purchaseTotal) e o cartão de crédito (creditCard). Perceba que as propriedades públicas da classe pai (User) foram "herdadas" pela classe filha (Customer).
+console.log(
+  "Id:", createCustomer.getId(),
+  "\nNome: ", createCustomer.getName(),
+  "\nE-mail: ", createCustomer.getEmail(),
+  "\nValor total da compra: ",
+  createCustomer.purchaseTotal
+)
+//a. Seria possível imprimir a senha (password) atrelada a essa instância? Por quê?
+//Não, pois é privado. A menos que eu crie um getPassword() dentro do Constructor da classe User.
+
