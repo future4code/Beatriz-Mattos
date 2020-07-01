@@ -1,3 +1,5 @@
+import * as moment from 'moment';
+
 //Exercícios\\
 //Exercício 1:
 //Analise a classe User. Perceba quais propriedades são públicas e quais são privadas. Copie esse código para o seu exercício de hoje; crie uma instância dessa classe (dê o nome, email, etc que você quiser) e imprima, no terminal, o id, o nome e o email desse usuário. 
@@ -70,16 +72,54 @@ const createCustomer: Customer = new Customer("02", "biziquinha@email.com", "Elz
 
 //Exercício 3
 //Agora, imprima todas as informações possíveis da instância que você criou: o id, o nome, o email, o valor total de compra (purchaseTotal) e o cartão de crédito (creditCard). Perceba que as propriedades públicas da classe pai (User) foram "herdadas" pela classe filha (Customer).
-console.log(createCustomer.introduceYourself(),
-  "\nId:", createCustomer.getId(),
-  "\nNome: ", createCustomer.getName(),
-  "\nE-mail: ", createCustomer.getEmail(),
-  "\nValor total da compra: ",
-  createCustomer.purchaseTotal
-)
+// console.log(createCustomer.introduceYourself(),
+//   "\nId:", createCustomer.getId(),
+//   "\nNome: ", createCustomer.getName(),
+//   "\nE-mail: ", createCustomer.getEmail(),
+//   "\nValor total da compra: ",
+//   createCustomer.purchaseTotal
+// )
 //a. Seria possível imprimir a senha (password) atrelada a essa instância? Por quê?
 //Não, pois é privado. A menos que eu crie um getPassword() dentro do Constructor da classe User.
 
-//Exercício 4 e 5
+//Exercícios 4 e 5
 //Adicione um método público à classe User. Esse método deve ter o nome de introduceYourself("apresente-se") e deve retornar a mensagem: "Olá, bom dia!". As classes filhas sempre têm acesso aos métodos públicos da classe pai. Então, para realizar o teste dessa sua função, faça com que a instância que você criou para a classe Customer chame esse método.
 //Ambos foram feitos acima.
+
+//Exercício 6
+//Agora, vamos criar uma nova classe: a que representa os funcionários (Employee). Ela deve ser uma classe filha da classe User. Além disso,  ela deve possuir as propriedades: data de admissão (admissionDate) e salário base (baseSalary). Como elas são informações sensíveis, não é recomendável que sejam públicas. Então, iremos declará-las com o encapsulador protected. Adicione dois métodos getters: um para acessar o admissionDate e outro para o baseSalary. Crie uma instância da classe Employee.
+class Employee extends User {
+  protected admissionDate: string;
+  protected baseSalary: number;
+
+  constructor(id: string, email: string, name: string, password: string, admissionDate: string, baseSalary: number) {
+    super(id, email, name, password);
+    this.admissionDate = admissionDate;
+    this.baseSalary = baseSalary;
+  }
+
+  public getAdmissionDate(): string {
+    return this.admissionDate;
+  }
+
+  public getBaseSalary(): number {
+    return this.baseSalary;
+  }
+}
+
+const createEmployee: Employee = new Employee("03", "funcionaria@email.com", "Stefani", "654321", "30/06/2020", 1530);
+console.log(createEmployee.introduceYourself(),
+  "\nId:", createEmployee.getId(),
+  "\nNome: ", createEmployee.getName(),
+  "\nE-mail: ", createEmployee.getEmail(),
+  "\nDia de admissão: ",
+  createEmployee.getAdmissionDate(),
+  "\nSalário base: ",
+  createEmployee.getBaseSalary()
+)
+
+//a. Quantas vezes a mensagem "Chamando o construtor da classe User" foi impressa no terminal?
+//A mensagem foi impressa três vezes.
+
+//b. Imprima as informações dessa instância no terminal. Quais dados são possíveis de serem impressos?
+//Todas as que herdei da classe User(pai) + os dados que criei para a classe Employee.
