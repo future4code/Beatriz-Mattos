@@ -80,6 +80,6 @@ console.log(createCustomer.introduceYourself(),
 //a. Seria possível imprimir a senha (password) atrelada a essa instância? Por quê?
 //Não, pois é privado. A menos que eu crie um getPassword() dentro do Constructor da classe User.
 
-//Exercício 4
+//Exercício 4 e 5
 //Adicione um método público à classe User. Esse método deve ter o nome de introduceYourself("apresente-se") e deve retornar a mensagem: "Olá, bom dia!". As classes filhas sempre têm acesso aos métodos públicos da classe pai. Então, para realizar o teste dessa sua função, faça com que a instância que você criou para a classe Customer chame esse método.
-//feito acima.
+//Ambos foram feitos acima.
