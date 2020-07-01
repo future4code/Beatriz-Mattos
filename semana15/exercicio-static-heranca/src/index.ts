@@ -110,17 +110,17 @@ class Employee extends User {
 }
 
 const createEmployee: Employee = new Employee("03", "funcionaria@email.com", "Melissa", "654321", "30/06/2020", 1530);
-console.log(createEmployee.introduceYourself(),
-  "\nId:", createEmployee.getId(),
-  "\nNome: ", createEmployee.getName(),
-  "\nE-mail: ", createEmployee.getEmail(),
-  "\nDia de admissão: ",
-  createEmployee.getAdmissionDate(),
-  "\nSalário base: ",
-  createEmployee.getBaseSalary(),
-  "\nSalário com benefício: ",
-  createEmployee.calculateTotalSalary()
-)
+// console.log(createEmployee.introduceYourself(),
+//   "\nId:", createEmployee.getId(),
+//   "\nNome: ", createEmployee.getName(),
+//   "\nE-mail: ", createEmployee.getEmail(),
+//   "\nDia de admissão: ",
+//   createEmployee.getAdmissionDate(),
+//   "\nSalário base: ",
+//   createEmployee.getBaseSalary(),
+//   "\nSalário com benefício: ",
+//   createEmployee.calculateTotalSalary()
+// )
 
 //a. Quantas vezes a mensagem "Chamando o construtor da classe User" foi impressa no terminal?
 //A mensagem foi impressa três vezes.
@@ -131,3 +131,27 @@ console.log(createEmployee.introduceYourself(),
 //Exercício 7
 //Adicione um método público à classe Employee: calculateTotalSalary ("calcula o salário total"). Ele deve retornar o valor do baseSalary somado com os benefícios do funcionário, considere que todos possuem o mesmo valor de R$400 de benefícios. Faça os testes com a instância que você já criou.
 //feito acima
+
+//Exercício 8
+//Agora, vamos criar a última classe do nosso sistema ( 🥳): Seller (vendedor). Todo vendedor, na vida real, é um funcionário da nossa loja certo? Então, a classe vendedor deve ser filha da classe Employee. Perceba que agora estamos criando uma classe filha (Seller) cuja classe pai (Employee)  é uma classe filha da classe User. 
+
+class Seller extends Employee {}
+
+//a. Crie uma instância da classe Seller. Você vai reparar que essa classe já possui um construtor, pois quando não colocamos um construtor na classe filha, ela herda o construtor da classe Pai. Quais parâmetros você teve que passar para esse construtor?
+//Os mesmos parâmetros do componente pai (id, e-mail, nome, senha, data de admissão e salário).
+
+const createSeller: Seller = new Seller("04", "vendedor@email.com", "Ulisses", "123123", "20/06/2020", 1550);
+
+//b. Imprima todas as informações da instância que você criou individualmente (ou seja, cada uma em uma linha própria). O que você conseguiu imprimir? O que não conseguiu? Por quê?
+
+console.log(createSeller.introduceYourself(),
+  "\nId:", createSeller.getId(),
+  "\nNome: ", createSeller.getName(),
+  "\nE-mail: ", createSeller.getEmail(),
+  "\nDia de admissão: ",
+  createSeller.getAdmissionDate(),
+  "\nSalário base: ",
+  createSeller.getBaseSalary(),
+  "\nSalário com benefício: ",
+  createSeller.calculateTotalSalary()
+)
