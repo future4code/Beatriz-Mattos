@@ -32,6 +32,10 @@ class User {
   public getName(): string {
     return this.name
   }
+
+  public introduceYourself(): string {
+    return `Olá, ${this.name}. Tenha um bom dia! :)`
+  }
 }
 
 const createUser: User = new User("01", "bia@gmail.com", "Bia", "123456");
@@ -66,8 +70,8 @@ const createCustomer: Customer = new Customer("02", "biziquinha@email.com", "Elz
 
 //Exercício 3
 //Agora, imprima todas as informações possíveis da instância que você criou: o id, o nome, o email, o valor total de compra (purchaseTotal) e o cartão de crédito (creditCard). Perceba que as propriedades públicas da classe pai (User) foram "herdadas" pela classe filha (Customer).
-console.log(
-  "Id:", createCustomer.getId(),
+console.log(createCustomer.introduceYourself(),
+  "\nId:", createCustomer.getId(),
   "\nNome: ", createCustomer.getName(),
   "\nE-mail: ", createCustomer.getEmail(),
   "\nValor total da compra: ",
@@ -76,3 +80,6 @@ console.log(
 //a. Seria possível imprimir a senha (password) atrelada a essa instância? Por quê?
 //Não, pois é privado. A menos que eu crie um getPassword() dentro do Constructor da classe User.
 
+//Exercício 4
+//Adicione um método público à classe User. Esse método deve ter o nome de introduceYourself("apresente-se") e deve retornar a mensagem: "Olá, bom dia!". As classes filhas sempre têm acesso aos métodos públicos da classe pai. Então, para realizar o teste dessa sua função, faça com que a instância que você criou para a classe Customer chame esse método.
+//feito acima.
