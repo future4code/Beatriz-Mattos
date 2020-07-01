@@ -92,6 +92,7 @@ class Employee extends User {
 
   constructor(id: string, email: string, name: string, password: string, admissionDate: string, baseSalary: number) {
     super(id, email, name, password);
+    console.log("Chamando o construtor da classe Employee")
     this.admissionDate = admissionDate;
     this.baseSalary = baseSalary;
   }
@@ -145,6 +146,10 @@ class Seller extends Employee {
   public setSalesQuantity(quantity: number): void {
     this.salesQuantity = quantity;
   }
+
+  public calculateTotalSalary(): number {
+    return this.baseSalary + 400 + this.salesQuantity * 5;
+  }
 }
 
 //a. Crie uma instância da classe Seller. Você vai reparar que essa classe já possui um construtor, pois quando não colocamos um construtor na classe filha, ela herda o construtor da classe Pai. Quais parâmetros você teve que passar para esse construtor?
@@ -172,6 +177,12 @@ const createSeller: Seller = new Seller("04", "vendedor@email.com", "Ulisses", "
 
 //a. Agora, teste o método setter, atualizando esse valor para o que você quiser. É possível imprimir no terminal o valor salesQuantity da instância que você criou? Por quê?
 //Não, retornou como undefined.
+// const test = createSeller.setSalesQuantity(88);
+// console.log(test);
 
-const test = createSeller.setSalesQuantity(88);
-console.log(test);
+//Exercício 10
+//Uma classe filha consegue sobrescrever  (override) um método da sua classe pai, se ela tiver acesso a ele (ou seja, se for  protected ou public). Para exemplificar isso, vamos pedir para que você altere a implementação da função calculateTotalSalary na classe Seller. Considere que todos os vendedores recebam a mesma comissão de: R$5 por venda.
+//a. Crie um novo vendedor. Atribua a ele um valor para a salesQuantity. Convoque a função calculateTotalSalary e  imprima no terminal o valor. O que foi impresso no terminal? Por quê?
+const createNewSeller: Seller = new Seller("05", "novo-vendedor@email.com", "Nestor", "777777", "25/06/2020", 1550);
+createNewSeller.setSalesQuantity(6);
+console.log(createNewSeller.calculateTotalSalary());
