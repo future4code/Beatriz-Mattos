@@ -1,6 +1,4 @@
-import * as moment from 'moment';
-
-//Exercícios\\
+                                        //Exercícios\\
 //Exercício 1:
 //Analise a classe User. Perceba quais propriedades são públicas e quais são privadas. Copie esse código para o seu exercício de hoje; crie uma instância dessa classe (dê o nome, email, etc que você quiser) e imprima, no terminal, o id, o nome e o email desse usuário. 
 //a. Seria possível imprimir a senha (`password`) atrelada a essa instância?
@@ -105,9 +103,13 @@ class Employee extends User {
   public getBaseSalary(): number {
     return this.baseSalary;
   }
+
+  public calculateTotalSalary(): number {
+    return this.baseSalary + 400;
+  }
 }
 
-const createEmployee: Employee = new Employee("03", "funcionaria@email.com", "Stefani", "654321", "30/06/2020", 1530);
+const createEmployee: Employee = new Employee("03", "funcionaria@email.com", "Melissa", "654321", "30/06/2020", 1530);
 console.log(createEmployee.introduceYourself(),
   "\nId:", createEmployee.getId(),
   "\nNome: ", createEmployee.getName(),
@@ -115,7 +117,9 @@ console.log(createEmployee.introduceYourself(),
   "\nDia de admissão: ",
   createEmployee.getAdmissionDate(),
   "\nSalário base: ",
-  createEmployee.getBaseSalary()
+  createEmployee.getBaseSalary(),
+  "\nSalário com benefício: ",
+  createEmployee.calculateTotalSalary()
 )
 
 //a. Quantas vezes a mensagem "Chamando o construtor da classe User" foi impressa no terminal?
@@ -123,3 +127,7 @@ console.log(createEmployee.introduceYourself(),
 
 //b. Imprima as informações dessa instância no terminal. Quais dados são possíveis de serem impressos?
 //Todas as que herdei da classe User(pai) + os dados que criei para a classe Employee.
+
+//Exercício 7
+//Adicione um método público à classe Employee: calculateTotalSalary ("calcula o salário total"). Ele deve retornar o valor do baseSalary somado com os benefícios do funcionário, considere que todos possuem o mesmo valor de R$400 de benefícios. Faça os testes com a instância que você já criou.
+//feito acima
