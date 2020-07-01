@@ -135,7 +135,17 @@ const createEmployee: Employee = new Employee("03", "funcionaria@email.com", "Me
 //Exercício 8
 //Agora, vamos criar a última classe do nosso sistema ( 🥳): Seller (vendedor). Todo vendedor, na vida real, é um funcionário da nossa loja certo? Então, a classe vendedor deve ser filha da classe Employee. Perceba que agora estamos criando uma classe filha (Seller) cuja classe pai (Employee)  é uma classe filha da classe User. 
 
-class Seller extends Employee {}
+class Seller extends Employee {
+  private salesQuantity: number = 0;
+
+  public getSalesQuantity(): number {
+    return this.salesQuantity;
+  }
+
+  public setSalesQuantity(quantity: number): void {
+    this.salesQuantity = quantity;
+  }
+}
 
 //a. Crie uma instância da classe Seller. Você vai reparar que essa classe já possui um construtor, pois quando não colocamos um construtor na classe filha, ela herda o construtor da classe Pai. Quais parâmetros você teve que passar para esse construtor?
 //Os mesmos parâmetros do componente pai (id, e-mail, nome, senha, data de admissão e salário).
@@ -144,14 +154,24 @@ const createSeller: Seller = new Seller("04", "vendedor@email.com", "Ulisses", "
 
 //b. Imprima todas as informações da instância que você criou individualmente (ou seja, cada uma em uma linha própria). O que você conseguiu imprimir? O que não conseguiu? Por quê?
 
-console.log(createSeller.introduceYourself(),
-  "\nId:", createSeller.getId(),
-  "\nNome: ", createSeller.getName(),
-  "\nE-mail: ", createSeller.getEmail(),
-  "\nDia de admissão: ",
-  createSeller.getAdmissionDate(),
-  "\nSalário base: ",
-  createSeller.getBaseSalary(),
-  "\nSalário com benefício: ",
-  createSeller.calculateTotalSalary()
-)
+// console.log(createSeller.introduceYourself(),
+//   "\nId:", createSeller.getId(),
+//   "\nNome: ", createSeller.getName(),
+//   "\nE-mail: ", createSeller.getEmail(),
+//   "\nDia de admissão: ",
+//   createSeller.getAdmissionDate(),
+//   "\nSalário base: ",
+//   createSeller.getBaseSalary(),
+//   "\nSalário com benefício: ",
+//   createSeller.calculateTotalSalary()
+// )
+
+//Exercício 9
+//Adicione uma nova propriedade para a classe Seller: salesQuantity (quantidade de vendas). Ela deve ser um number, ser privada, começar com o valor 0 e não pode estar no construtor. Por ser privada, crie um método setter setSalesQuantity que permita atualizar o valor dessa propriedade.
+//feito acima
+
+//a. Agora, teste o método setter, atualizando esse valor para o que você quiser. É possível imprimir no terminal o valor salesQuantity da instância que você criou? Por quê?
+//Não, retornou como undefined.
+
+const test = createSeller.setSalesQuantity(88);
+console.log(test);
