@@ -1,4 +1,4 @@
-                                        //Exercícios\\
+//Exercícios\\
 //Exercício 1:
 //Analise a classe User. Perceba quais propriedades são públicas e quais são privadas. Copie esse código para o seu exercício de hoje; crie uma instância dessa classe (dê o nome, email, etc que você quiser) e imprima, no terminal, o id, o nome e o email desse usuário. 
 //a. Seria possível imprimir a senha (`password`) atrelada a essa instância?
@@ -87,6 +87,7 @@ const createCustomer: Customer = new Customer("02", "biziquinha@email.com", "Elz
 //Exercício 6
 //Agora, vamos criar uma nova classe: a que representa os funcionários (Employee). Ela deve ser uma classe filha da classe User. Além disso,  ela deve possuir as propriedades: data de admissão (admissionDate) e salário base (baseSalary). Como elas são informações sensíveis, não é recomendável que sejam públicas. Então, iremos declará-las com o encapsulador protected. Adicione dois métodos getters: um para acessar o admissionDate e outro para o baseSalary. Crie uma instância da classe Employee.
 class Employee extends User {
+  static BENEFITS_VALUE: number = 400;
   protected admissionDate: string;
   protected baseSalary: number;
 
@@ -106,7 +107,7 @@ class Employee extends User {
   }
 
   public calculateTotalSalary(): number {
-    return this.baseSalary + 400;
+    return Employee.BENEFITS_VALUE + 400;
   }
 }
 
@@ -137,6 +138,7 @@ const createEmployee: Employee = new Employee("03", "funcionaria@email.com", "Me
 //Agora, vamos criar a última classe do nosso sistema ( 🥳): Seller (vendedor). Todo vendedor, na vida real, é um funcionário da nossa loja certo? Então, a classe vendedor deve ser filha da classe Employee. Perceba que agora estamos criando uma classe filha (Seller) cuja classe pai (Employee)  é uma classe filha da classe User. 
 
 class Seller extends Employee {
+  static SELLING_COMMISSION: number = 5;
   private salesQuantity: number = 0;
 
   public getSalesQuantity(): number {
@@ -148,7 +150,9 @@ class Seller extends Employee {
   }
 
   public calculateTotalSalary(): number {
-    return this.baseSalary + 400 + this.salesQuantity * 5;
+    return (
+      this.baseSalary + Employee.BENEFITS_VALUE + Seller.SELLING_COMMISSION * 5
+    );
   }
 }
 
@@ -185,4 +189,10 @@ const createSeller: Seller = new Seller("04", "vendedor@email.com", "Ulisses", "
 //a. Crie um novo vendedor. Atribua a ele um valor para a salesQuantity. Convoque a função calculateTotalSalary e  imprima no terminal o valor. O que foi impresso no terminal? Por quê?
 const createNewSeller: Seller = new Seller("05", "novo-vendedor@email.com", "Nestor", "777777", "25/06/2020", 1550);
 createNewSeller.setSalesQuantity(6);
-console.log(createNewSeller.calculateTotalSalary());
+// console.log(createNewSeller.calculateTotalSalary());
+
+//Exercício 11
+//Para finalizar os conceitos aprendidos em aula, vamos criar agora duas propriedades estáticas. Essas propriedades são valores que não dependem da instância da classe.
+//Comece criando, na classe Employee, um atributo estático (static) que represente o valor dos benefícios (BENEFITS_VALUE) que tenha o valor 400. Altere o método calculateTotalSalary da classe Employee para que ele utilize essa propriedade em seu cálculo.
+//Agora crie, na classe `Seller`, um atributo estático (`static`) que represente o valor das comissões (`SELLING_COMMISSION`) que tenha o valor `5`. Por fim, altere o método `calculateTotalSalary` da classe `Seller` para que ele utilize os atributos estáticos em sua implementação.
+//(resolvido acima)
