@@ -1,38 +1,30 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const fs = require("fs");
-const moment = require("moment");
-const createAccount = (name, birthDateString, cpf) => {
-    const birthDate = moment(birthDateString, "DD/MM/YYYY");
-    const today = moment();
-    const currentAge = today.diff(birthDate, "years");
-    if (currentAge < 18) {
-        console.log("Usuário deve ser maior de idade para ter uma conta.");
-        return;
-    }
-    const usersFilePath = "/Users/Elza Penha/Desktop/Beatriz-Mattos/semana14/projeto-labebank/users.json";
-    const usersFileData = fs.readFileSync(usersFilePath);
-    const usersString = usersFileData.toString();
-    const users = JSON.parse(usersString);
-    const foundUser = users.find((user) => {
-        return user.cpf === cpf;
-    });
-    if (foundUser !== undefined) {
-        console.log("Já existe um usuário com esse cpf.");
-        return;
-    }
-    users.push({
-        name: name,
-        birthDate: birthDateString,
-        cpf: cpf,
-        currentBalance: 0,
-        extract: []
-    });
-    console.log(users);
-    const usersStringified = JSON.stringify(users, null, 2);
-    fs.writeFileSync(usersFilePath, usersStringified);
-};
-const name = process.argv[2];
-const date = process.argv[3];
-const cpf = process.argv[4];
-createAccount(name, date, cpf);
+const Bank_1 = require("./Bank");
+const bank = new Bank_1.Bank();
+const action = process.argv[2];
+switch (action) {
+    case 'createAccount':
+        bank.createAccount(process.argv[3], process.argv[4], process.argv[5]);
+        console.log("Conta criada com sucesso!");
+        break;
+    case 'getCurrentBalance':
+        console.log(bank.getCurrentBalance(process.argv[3], process.argv[4]));
+        break;
+    case 'addBalance':
+        bank.addBalance(process.argv[3], process.argv[4], Number(process.argv[5]));
+        console.log("Sucesso!");
+        break;
+    case 'payBill':
+        bank.payBill(process.argv[3], Number(process.argv[4]), process.argv[5], process.argv[6]);
+        break;
+    case 'updateBalance':
+        bank.updateBalance();
+        break;
+    case 'makeTransfer':
+        bank.makeTransfer(process.argv[3], process.argv[4], process.argv[5], process.argv[6], Number(process.argv[7]));
+        break;
+    default:
+        console.log("Operação inválida.");
+        break;
+}

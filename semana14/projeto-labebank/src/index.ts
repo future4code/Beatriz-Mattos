@@ -1,48 +1,61 @@
-import * as fs from 'fs';
-import * as moment from 'moment';
-import { Account, ExtractItem } from './types';
+import { Bank } from './Bank';
 
-const createAccount = (name: string, birthDateString: string, cpf: string) => {
-    const birthDate = moment(birthDateString, "DD/MM/YYYY");
-    const today = moment();
-    const currentAge = today.diff(birthDate, "years");
+const bank: Bank = new Bank()
 
-    if(currentAge < 18) {
-        console.log("Usuário deve ser maior de idade para ter uma conta.")
-        return;
-    }
+const action: string = process.argv[2]
 
-    const usersFilePath = "/Users/Elza Penha/Desktop/Beatriz-Mattos/semana14/projeto-labebank/users.json";
-    const usersFileData: Buffer = fs.readFileSync(usersFilePath);
-    const usersString: string = usersFileData.toString();
+switch (action) {
+    case 'createAccount':
+        bank.createAccount(
+            process.argv[3],
+            process.argv[4],
+            process.argv[5]
+        )
+        console.log("Conta criada com sucesso!")
+        break;
 
-    const users: Account[] = JSON.parse(usersString);
+    case 'getCurrentBalance':
+        console.log(
+            bank.getCurrentBalance(
+                process.argv[3],
+                process.argv[4]
+            )
+        )
+        break;
 
-      const foundUser = users.find((user: Account) => {
-        return user.cpf === cpf
-    })
+    case 'addBalance':
+        bank.addBalance(
+            process.argv[3],
+            process.argv[4],
+            Number(process.argv[5])
+        )
+        console.log("Sucesso!")
+        break;
 
-    if(foundUser !== undefined) {
-        console.log("Já existe um usuário com esse cpf.")
-        return;
-    }
+    case 'payBill':
+        bank.payBill(
+            process.argv[3],
+            Number(process.argv[4]),
+            process.argv[5],
+            process.argv[6]
+        )
+        break;
 
-    users.push({
-        name: name,
-        birthDate: birthDateString,
-        cpf: cpf,
-        currentBalance: 0,
-        extract: []
-    });
+    case 'updateBalance':
+        bank.updateBalance()
+        break;
 
-    console.log(users)
+    case 'makeTransfer':
+        bank.makeTransfer(
+            process.argv[3],
+            process.argv[4],
+            process.argv[5],
+            process.argv[6],
+            Number(process.argv[7])
+        )
+        break;
 
-    const usersStringified = JSON.stringify(users, null, 2);
-    fs.writeFileSync(usersFilePath, usersStringified);
-};
-
-const name = process.argv[2];
-const date = process.argv[3];
-const cpf = process.argv[4]
-
-createAccount(name, date, cpf);
+    default:
+        console.log("Operação inválida.")
+        break;
+}
