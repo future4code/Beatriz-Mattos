@@ -1,7 +1,7 @@
 import { User } from './User';
-import * as moment from 'moment';
+//import * as moment from 'moment';
 
-enum TEACHER_SPECIALTY {
+export enum TEACHER_SPECIALTY {
     REACT = "REACT",
     REDUX = "REDUX",
     CSS = "CSS",
@@ -13,30 +13,14 @@ enum TEACHER_SPECIALTY {
 
 export class Teacher implements User {
     constructor(
-        public id: number,
+        public id: string,
         public name: string,
         public email: string,
-        public birthDate: moment.Moment,
         public specialties: TEACHER_SPECIALTY[]
     ) {}
-
-    public getId(): number {
-        return this.id;
-    }
-
-    public getName(): string {
-        return this.name;
-    }
-
-    public getEmail(): string {
-        return this.email;
-    }
-
-    public getAge(): number {
-        return moment().diff(this.birthDate, "years");
-    }
-
-    public getSpecialties(): TEACHER_SPECIALTY[] {
-        return this.specialties;
-    }
 }
+
+export const teacher1 = new Teacher("01", "João", "joao@labemail.com", [TEACHER_SPECIALTY.CSS, TEACHER_SPECIALTY.TYPESCRIPT]);
+export const teacher2 = new Teacher("02", "Darvas", "darvas@labemail.com", [TEACHER_SPECIALTY.REACT, TEACHER_SPECIALTY.BACKEND]);
+export const teacher3 = new Teacher("03", "Amanda", "amanda@labemail.com", [TEACHER_SPECIALTY.OOP, TEACHER_SPECIALTY.TYPESCRIPT]);
+export const teacher4 = new Teacher("04", "Soter", "soter@labemail.com", [TEACHER_SPECIALTY.TESTES, TEACHER_SPECIALTY.REDUX]);
