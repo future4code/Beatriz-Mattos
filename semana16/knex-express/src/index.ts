@@ -53,7 +53,7 @@ const countActors = async (gender: string): Promise<any> => {
 
 const updateActor = async (id: string, salary: number): Promise<any> => {
     await connection("Actor")
-        .update({salary: salary})
+        .update({ salary: salary })
         .where("id", id);
 };
 
@@ -64,7 +64,7 @@ const deleteActor = async (id: string): Promise<any> => {
     try {
         await connection("Actor").delete().where("id", id);
 
-            console.log("Ator deletado con sucesso!")
+        console.log("Ator deletado con sucesso!")
     } catch (error) {
         console.error(error);
     }
@@ -72,11 +72,11 @@ const deleteActor = async (id: string): Promise<any> => {
 
 const avgSalary = async (gender: string): Promise<any> => {
     const result = await connection("Actor")
-      .avg("salary as average")
-      .where({ gender });
-  
+        .avg("salary as average")
+        .where({ gender });
+
     return result[0].average;
-  };
+};
 
 //   const res = avgSalary('female');
 //   res.then(value => console.log(value));
@@ -85,19 +85,115 @@ const getActorById = async (id: string): Promise<any> => {
     const result = await connection.raw(`
       SELECT * FROM Actor WHERE id = '${id}'
     `)
-  
-      return result[0][0]
-  }
 
-app.get("/actor", async (req: Request, res: Response) => {
+    return result[0][0]
+}
+
+app.get("/actor", async function (req, res) {
     try {
         const count = await countActors(req.query.gender as string);
 
         res.status(200).send({ quantity: count });
 
     } catch (error) {
-        res.status(400).send({
-            message: error.message;
-        });
+        res.status(400).send({ message: error.message });
     }
 })
+
+app.post("/actor", async function (req, res) {
+    try {
+        await updateSalary(req.body.id, req.body.salary);
+
+        res.status(200).send({ message: "Sucesso!"
+    });
+
+    } catch (err) {
+        res.status(400).send({ message: err.message });
+    }
+});
+
+app.delete("/actor/:id", async (req, res) => {
+    try {
+        await deleteActor(req.params.id);
+    } catch (err) {
+        res.status(400).send({ message: err.message });
+    }
+});
+
+const createMovie = async (
+    id: string,
+    title: string,
+    releaseDate: Date,
+    playingLimitDate: Date
+) => {
+    await connection
+    .insert({
+        id: id,
+        title: title,
+        synopsis: synopsis,
+        release_date: releaseDate,
+        playing_limit_date: playingLimitDate
+    })
+    .into("Movie");
+};
+
+app.post("/movie/:id", async (req, res) => {
+    try {
+        await createMovie(
+            req.body.id,
+            req.body.title,
+            req.body.releaseDate,
+            req.body.playingLimitDate
+        );
+
+        res.status(200).send({ message: "Sucesso!" });
+
+    } catch (err) {
+        res.status(400).send({ message: err.message });
+    }
+});
+
+const getAllMovies = async (): Promise<any> => {
+    const result = await connection.raw(`
+        SELECT * FROM Movie LIMIT 15
+    `);
+    return result[0];
+}
+
+app.post("/movie/:id", async (req, res) => {
+    try {
+        const movies = await getAllMovies();
+
+        res.status(200).send({ movies: movies });
+
+    } catch (err) {
+        res.status(400).send({ message: err.message });
+    }
+});
+
+async function searchMovie(name: string): Promise<any> {
+    try {
+        const result = await connection
+            .select("*")
+            .from("Movie")
+            .where("name", "LIKE", `%${name}%`)
+
+            return result
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+app.get("/movie/search", async (req, res) => {
+    try {
+      const movies = await searchMovie(req.query.query as string);
+  
+      res.status(200).send({
+        movies: movies,
+      });
+    } catch (err) {
+      res.status(400).send({
+        message: err.message,
+      });
+    }
+  });

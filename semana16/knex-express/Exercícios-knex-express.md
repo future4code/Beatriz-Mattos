@@ -75,17 +75,137 @@ b) O *try* tem como resposta http 200 pois é a resposta de status de sucesso qu
 
 c)
 ```
-app.get("/actor", async (req: Request, res: Response) => {
+app.get("/actor", async function(req, res) {
     try {
-        const count = await countActorsByGender(req.query.gender as string);
-        res.status(200).send({
-        quantity: count,
-    });
+        const count = await countActors(req.query.gender as string);
+
+        res.status(200).send({ quantity: count });
+
     } catch (error) {
-        res.status(400).send({
-            message: error.message,
-        });
+        res.status(400).send({ message: error.message });
+    }
+})
+```
+____________________________________________________________________________________
+
+## Exercício 4
+
+a)
+```
+app.post("/actor", async function (req, res) {
+    try {
+        await updateSalary(req.body.id, req.body.salary);
+
+        res.status(200).send({ message: "Sucesso!"
+    });
+
+    } catch (err) {
+        res.status(400).send({ message: err.message });
+    }
+})
+```
+
+b)
+```
+app.delete("/actor/:id", async (req, res) => {
+    try {
+        await deleteActor(req.params.id);
+    } catch (err) {
+        res.status(400).send({ message: err.message });
+    }
+})
+```
+
+____________________________________________________________________________________
+
+## Exercício 5
+```
+const createMovie = async (
+    id: string,
+    title: string,
+    releaseDate: Date,
+    playingLimitDate: Date
+) => {
+    await connection
+    .insert({
+        id: id,
+        title: title,
+        synopsis: synopsis,
+        release_date: releaseDate,
+        playing_limit_date: playingLimitDate
+    })
+    .into("Movie");
+};
+
+app.post("/movie/:id", async (req, res) => {
+    try {
+        await createMovie(
+            req.body.id,
+            req.body.title,
+            req.body.releaseDate,
+            req.body.playingLimitDate
+        );
+
+        res.status(200).send({ message: "Sucesso!" });
+
+    } catch (err) {
+        res.status(400).send({ message: err.message });
     }
 });
 ```
+
 ____________________________________________________________________________________
+
+## Exercício 6
+```
+const getAllMovies = async (): Promise<any> => {
+    const result = await connection.raw(`
+        SELECT * FROM Movie LIMIT 15
+    `);
+    return result[0];
+}
+
+app.post("/movie/:id", async (req, res) => {
+    try {
+        const movies = await getAllMovies();
+
+        res.status(200).send({ movies: movies });
+
+    } catch (err) {
+        res.status(400).send({ message: err.message });
+    }
+});
+```
+
+____________________________________________________________________________________
+
+## Exercício 7
+
+```
+async function searchMovie(name: string): Promise<any> {
+    try {
+        const result = await connection
+            .select("*")
+            .from("Movie")
+            .where("name", "LIKE", `%${name}%`)
+
+            return result
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+app.get("/movie/search", async (req, res) => {
+    try {
+      const movies = await searchMovie(req.query.query as string);
+  
+      res.status(200).send({
+        movies: movies,
+      });
+    } catch (err) {
+      res.status(400).send({
+        message: err.message,
+      });
+    }
+  });
+```
