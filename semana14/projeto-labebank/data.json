@@ -1,0 +1,56 @@
+[
+  {
+    "name": "Beatriz",
+    "cpf": "45676523465",
+    "birthDate": "26/12/1996",
+    "currentBalance": 2600,
+    "transactions": [
+      {
+        "value": 2400,
+        "description": "Depósito de dinheiro",
+        "date": "04/07/2020"
+      },
+      {
+        "value": 200,
+        "description": "Transferência entre contas",
+        "date": "04/07/2020"
+      },
+      {
+        "value": -20,
+        "description": "Almoço",
+        "date": "04/07/2020"
+      }
+    ]
+  },
+  {
+    "name": "Amália",
+    "cpf": "45678912312",
+    "birthDate": "12/08/1997",
+    "currentBalance": 1500,
+    "transactions": [
+      {
+        "value": 1500,
+        "description": "Depósito de dinheiro",
+        "date": "04/07/2020"
+      }
+    ]
+  },
+  {
+    "name": "Elza",
+    "cpf": "45478956323",
+    "birthDate": "14/08/1984",
+    "currentBalance": 1700,
+    "transactions": [
+      {
+        "value": 1900,
+        "description": "Depósito de dinheiro",
+        "date": "04/07/2020"
+      },
+      {
+        "value": -200,
+        "description": "Transferência entre contas",
+        "date": "04/07/2020"
+      }
+    ]
+  }
+]
