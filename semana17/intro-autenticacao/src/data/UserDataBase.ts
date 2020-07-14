@@ -1,4 +1,3 @@
-import knex from "knex";
 import { db } from "./DataSetup";
 
 export class UserDatabase {

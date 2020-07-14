@@ -5,5 +5,3 @@ export class IdGenerator {
     return v4();
   }
 }
-
-console.log(IdGenerator)

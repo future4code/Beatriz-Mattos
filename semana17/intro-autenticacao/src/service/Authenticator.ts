@@ -1,5 +1,9 @@
 import * as jwt from "jsonwebtoken";
 
+interface AuthenticationData {
+    id: string;
+  }
+
 export class Authenticator {
   private static EXPIRES_IN = "1min";
   public generateToken(input: AuthenticationData): string {
@@ -14,8 +18,12 @@ export class Authenticator {
     );
     return token;
   }
-}
 
-interface AuthenticationData {
-  id: string;
+//   getData(token: string): AuthenticationData {
+//       const payload: jwt.verify(token, JWT_KEY) as any;
+//       const result: AuthenticationData = {
+//           id: payload.id
+//       }
+//   }
+
 }
