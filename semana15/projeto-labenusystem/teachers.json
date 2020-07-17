@@ -1,0 +1,38 @@
+[
+  {
+    "id": "01",
+    "name": "João",
+    "email": "joao@labemail.com",
+    "specialties": [
+      "CSS",
+      "TYPESCRIPT"
+    ]
+  },
+  {
+    "id": "02",
+    "name": "Darvas",
+    "email": "darvas@labemail.com",
+    "specialties": [
+      "REACT",
+      "BACKEND"
+    ]
+  },
+  {
+    "id": "03",
+    "name": "Amanda",
+    "email": "amanda@labemail.com",
+    "specialties": [
+      "OOP",
+      "TYPESCRIPT"
+    ]
+  },
+  {
+    "id": "04",
+    "name": "Soter",
+    "email": "soter@labemail.com",
+    "specialties": [
+      "TESTES",
+      "REDUX"
+    ]
+  }
+]
