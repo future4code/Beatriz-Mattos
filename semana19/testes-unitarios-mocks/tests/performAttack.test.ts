@@ -64,8 +64,3 @@ describe("performAttack", () => {
     });
 
 });
-
-// Faça um teste com um dos personagens com alguma informação inválida.
-// Verifique a mensagem de erro.
-// Sobre a função mockada, verifique se ela foi chamada, o número de vezes em que ela foi chamada,
-// o que ela retornou e quantas vezes ela retornou. 
