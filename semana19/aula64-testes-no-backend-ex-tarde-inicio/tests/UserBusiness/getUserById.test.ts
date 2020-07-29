@@ -8,7 +8,7 @@ describe("Testing UserBusiness.getUserById", () => {
     let idGenerator = {};
 
     test("Should return 'User not found' when user doesn't exist", async () => {
-        
+
         expect.assertions(2);
 
         try {
@@ -37,7 +37,7 @@ describe("Testing UserBusiness.getUserById", () => {
     test("Should return a existent user", async () => {
 
         const getUserById = jest.fn(
-            (id: string) => new User("id", "Natassja", "natassja@email.com", "123456", stringToUserRole("ADMIN"))
+            (id: string) => new User("01", "Natassja", "natassja@email.com", "123456", stringToUserRole("ADMIN"))
         );
 
         userDatabase = { getUserById };
@@ -52,7 +52,7 @@ describe("Testing UserBusiness.getUserById", () => {
         const user = await userBusiness.getUserById("id");
 
         expect(getUserById).toHaveBeenCalledWith("id");
-        expect(user).toEqual({ id: "id", name: "Natassja", email: "natassja@email.com", role: UserRole.ADMIN });
+        expect(user).toEqual({ id: "01", name: "Natassja", email: "natassja@email.com", role: UserRole.ADMIN });
 
     });
 });
