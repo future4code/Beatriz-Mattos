@@ -1,7 +1,8 @@
 import { Request, Response } from "express";
 import { UserInputDTO, LoginInputDTO} from "../model/User";
-import { UserBusiness } from "../business/UserBusiness";
 import { BaseDatabase } from "../data/BaseDatabase";
+import { Authenticator } from "../services/Authenticator";
+import { UserBusiness } from "../business/UserBusiness";
 
 export class UserController {
     async signup(req: Request, res: Response) {
@@ -36,9 +37,12 @@ export class UserController {
             };
 
             const userBusiness = new UserBusiness();
-            const token = await userBusiness.getUserByEmail(loginData);
+            const user = await userBusiness.getUserByEmail(loginData);
 
-            res.status(200).send({ token });
+            const authenticator = new Authenticator();
+            const accessToken = authenticator.generateToken({id: user.getId()});
+
+            res.status(200).send({ token: accessToken });
 
         } catch (error) {
             res.status(400).send({ error: error.message });
