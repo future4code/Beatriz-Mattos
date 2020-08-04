@@ -1,0 +1,30 @@
+		Exercício 4
+	(criado e testado no AWS Lambda)
+
+exports.handler = async (event) => {
+   const email = event.email;
+   
+   if(!email.includes("@")) {
+       return {
+           statusCode: 400,
+           body: JSON.stringify({
+               "isEmail": false,
+               "reason": "Não possui '@'"
+           })
+       }
+   }
+   
+   if(!email.includes(".")) {
+       return {
+	    "isEmail": false,
+        "reason": "Não possui '.'"
+        }
+   }
+   
+   return {
+      statusCode: 200,
+      body: JSON.stringify({
+          isEmail: true
+      })
+    };
+}
