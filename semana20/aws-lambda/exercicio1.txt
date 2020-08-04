@@ -1,0 +1,17 @@
+		Exercício 1
+
+a) Entendi tudo :)
+
+b) Se a função receber um objeto vazio de entrada, retornará 'message: "Missing input"';
+
+c) Se a função receber apenas o objeto com o atributo nome: "Astrodev", ainda assim retornará 'message: "Missing input"';
+
+d) Retornará "message: "Missing email";
+
+e) Retornará "message: "Invalid password";
+
+f) Retornará "message: "User is correct";
+
+g) Para que a função retorne o status 422 caso o e-mail seja inválido, devemos alterar no statusCode do bloco de validação "if (!user.email)";
+
+h) Para que a função retorne o status 200(OK), o objeto de entrada deve conter um abributo info contendo name, email e password.
