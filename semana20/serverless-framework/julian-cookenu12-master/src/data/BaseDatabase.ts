@@ -26,7 +26,5 @@ export abstract class BaseDataBase {
             await BaseDataBase.connection.destroy();
             BaseDataBase.connection = null;
         }
-
-        BaseDataBase.destroyConnection();
     }
 }

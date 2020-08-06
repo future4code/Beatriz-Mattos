@@ -51,7 +51,7 @@
   "devDependencies": {
     "@types/cors": "^2.8.7",
     "@types/mysql": "^2.15.15",
-    "serverless": "^1.78.1",
+    "serverless": "^1.74.1",
     "serverless-dotenv-plugin": "^3.0.0",
     "serverless-offline": "^6.5.0",
     "serverless-webpack": "^5.3.3",
