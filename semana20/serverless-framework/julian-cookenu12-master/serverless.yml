@@ -1,0 +1,35 @@
+plugins:
+  - serverless-offline
+  - serverless-webpack
+  - serverless-dotenv-plugin
+
+# Nome do projeto
+# Será usado para construir o nome da Lambda e do API Gateway
+service: julian-cookenu12
+
+# Existem vários serviços que utilizam o Serverless Framework
+# Precisamos indicar que vamos usar a AWS
+# Cada provedor tem parâmetros diferentes no provider
+# Aqui estão alguns da AWS
+provider:
+  name: aws
+  runtime: nodejs12.x # Versão da função de Lambda
+  stage: dev # Controlar o stage de ambiente (usado no API Gateway)
+  region: us-east-1 # Região para criar as lambdas. O padrão é us-east-1
+
+custom:
+  webpack:
+    webpackConfig: webpack.config.js
+    packager: "npm"
+    includeModules: true # enable auto-packing of external modules
+
+# Criamos as funções de Lambda aqui
+# Permite criar várias lambdas de uma vez
+
+functions:
+  app:
+    handler: src/lambda.handler # Localização da função de lambda
+    events: # Array com as configurações HTTP
+      - http: ANY / # Qualquer requisição
+      - http: "ANY {proxy+}" # Qualquer requisição e qualquer path
+      - cors: true
