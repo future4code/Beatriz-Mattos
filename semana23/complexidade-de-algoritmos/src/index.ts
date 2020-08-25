@@ -73,3 +73,12 @@ function verifyIfExistRepeatedNumbers(listOfNumbers: number[]): boolean {
 /* 5 */
 /* Da maior eficiência/performance para a menor: 3 -> 1 = 2 -> 4 */
 
+/* 6 */
+function product(a: number, b: number): number {
+    let sum = 0;
+    for (let i = 0; i < b; i++) {
+        sum += a;
+    }
+    return sum
+}
+/* Ocorre uma iteração com o elemento b, logo a complexidade é de O(b) */
