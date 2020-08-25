@@ -68,3 +68,8 @@ function verifyIfExistRepeatedNumbers(listOfNumbers: number[]): boolean {
     return false;
 }
 /* A função indexOf percorre o array tentando achar um index, caracterizando uma complexidade O(n), mas como também está dentro de um loop, multiplicamos pelo loop externo, gerando uma complexidade quadrática (O(n²)) */
+
+
+/* 5 */
+/* Da maior eficiência/performance para a menor: 3 -> 1 = 2 -> 4 */
+
