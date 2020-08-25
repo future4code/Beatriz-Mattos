@@ -82,3 +82,14 @@ function product(a: number, b: number): number {
     return sum
 }
 /* Ocorre uma iteração com o elemento b, logo a complexidade é de O(b) */
+
+/* 7 */
+function mod(a: number, b: number): number {
+    if (b <= a) {
+        return -1;
+    }
+    let div = a / b;
+    return a - div * b;
+}
+/* Como não há loops que dependam da entrada, a complexidade é de O(1) */
+
