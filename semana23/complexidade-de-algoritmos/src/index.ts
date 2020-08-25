@@ -58,3 +58,13 @@ export const replaceMatrixValue = (
 /* O algoritmo acima depende das entradas de arrays, mas em nenhum momento ocorre uma iteração no array. Como não tem loops, a complexidade é de O(1) */
 
 
+/* 4 */
+function verifyIfExistRepeatedNumbers(listOfNumbers: number[]): boolean {
+    for (let i = 0; i < listOfNumbers.length; i++) {
+        if (listOfNumbers.indexOf(listOfNumbers[i]) !== i) {
+            return true;
+        }
+    }
+    return false;
+}
+/* A função indexOf percorre o array tentando achar um index, caracterizando uma complexidade O(n), mas como também está dentro de um loop, multiplicamos pelo loop externo, gerando uma complexidade quadrática (O(n²)) */
