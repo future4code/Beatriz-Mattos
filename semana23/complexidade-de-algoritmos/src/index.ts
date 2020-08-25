@@ -93,3 +93,21 @@ function mod(a: number, b: number): number {
 }
 /* Como não há loops que dependam da entrada, a complexidade é de O(1) */
 
+/* 8 */
+function copyArray(array: number[]): number[] {
+    let copy: number[] = [];
+    for (const value of array) {
+        copy = appendToNew(copy, value);
+    }
+    return copy;
+}
+
+function appendToNew(array: number[], value: number) {
+    const newArray = [];
+    for (let i = 0; i < array.length; i++) {
+        newArray.push(array[i]);
+    }
+    newArray.push(value);
+    return newArray;
+}
+/* Sendo n o tamanho do array, a complexidade de appendToNew é O(n); sendo n o tamanho do array, a complexidade de appendToNew é O(n²), bem como no exercício 4 */
