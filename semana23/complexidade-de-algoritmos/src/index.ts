@@ -55,4 +55,6 @@ export const replaceMatrixValue = (
 
     matrix[rowIndex][columnIndex] = value;
 };
-/* Como a estimativa de tempo é diretamente um número, a complexidade é de O(1) */
+/* O algoritmo acima depende das entradas de arrays, mas em nenhum momento ocorre uma iteração no array. Como não tem loops, a complexidade é de O(1) */
+
+
