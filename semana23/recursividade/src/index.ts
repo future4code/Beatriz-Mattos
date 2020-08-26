@@ -18,4 +18,17 @@ const printDecrescentNumbers = (n: number) => {
     }
 };
 
-printDecrescentNumbers(7);
+//printDecrescentNumbers(7);
+
+
+/* Exercício 2 */
+/* Escreva uma função recursiva que calcule a soma dos números inteiros de 0 a n */
+export const calculateSumTo = (n: number, sum: number = 0): number => {
+    if(n === 0) {
+        return sum;
+    }
+
+    return calculateSumTo(n - 1, sum + n);
+};
+
+console.log(calculateSumTo(3));
