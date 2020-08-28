@@ -56,10 +56,17 @@ class LinkedListNode {
 
 /* ... e um método que imprima todos elementos presentes nela. */
 function search(list: LinkedList, value: any): LinkedListNode | null {
+
+    /* nós da linked list */
     let node: LinkedListNode | null = list.start
+
+    /* o node precisa ser diferente de nulo porque eu busco um valor; o valor dele precisa ser igual ao que to bucando, ou seja, enquanto o node.value for diferente do value, quero que ele continue iterando sobre a lista */
     while (node !== null && node.value !== value) {
+
+        /* enquanto não achar o que to procurando, passo para o próximo nó */
         node = node.next
     }
 
+    /* se achei, ele retorna o elemento da lista */
     return node
 };
