@@ -1,0 +1,10 @@
+		Exercício 3
+	(função criada e testada no AWS Lambda)
+
+exports.handler = async (event) => {
+   const sum = event.a + event.b;
+   return {
+      statusCode: 200,
+      body: JSON.stringify(sum)
+    };
+}

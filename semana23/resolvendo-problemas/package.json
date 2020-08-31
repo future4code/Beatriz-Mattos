@@ -1,17 +1,16 @@
 {
-  "name": "recursividade",
+  "name": "resolvendo-problemas",
   "version": "1.0.0",
-  "description": "",
+  "description": "Resolução dos exercícios da tarde",
   "main": "index.js",
-
   "scripts": {
     "start": "ts-node-dev ./src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC"
+  "author": "Beatriz de Mattos",
+  "license": "ISC",
   "dependencies": {
-    "ts-node-dev": "^1.0.0-pre.61",
+    "ts-node-dev": "^1.0.0-pre.60",
     "typescript": "^4.0.2"
   }
 }
